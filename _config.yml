@@ -2,3 +2,4 @@ title: Eugene Lee - Research Blog
 description: A blog about Computer Vision and AI.
 theme: minima
 markdown: kramdown
+baseurl: "/Paidge"
