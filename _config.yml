@@ -1,5 +1,7 @@
-title: Paidge - Research Blog
-description: A blog about Computer Vision and AI.
+title: Paidge
+description: Research notes on Computer Vision, AI, and Robotics.
 theme: minima
 markdown: kramdown
 url: "https://paidge.com"
+github_username: eugenelet
+twitter_username: eugenelet
