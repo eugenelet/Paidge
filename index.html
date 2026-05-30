@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<div class="home">
+  <p style="font-size: 1.1rem; color: #555;">
+    <strong>Paidge</strong> is a research blog documenting efforts toward personalized AI on the edge. The focus is on Continuous Test-Time Adaptation (TTA) and direct parameter-space adaptation, allowing models to dynamically learn and align with individual users over time without central hosting.
+  </p>
+  
+  <p style="margin-bottom: 2rem;">
+    Curated by <a href="https://your-personal-website.com" target="_blank" style="font-weight: 600;">Eugene Lee</a>.
+  </p>
+
+  <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-bottom: 2rem;">
+
+  <h2 class="post-list-heading" style="font-size: 1.5rem; margin-bottom: 1rem;">Research Notes</h2>
+  
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta" style="color: #888; font-size: 0.9rem;">{{ post.date | date: "%B %-d, %Y" }}</span>
+        <h3>
+          <a class="post-link" href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
