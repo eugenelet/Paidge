@@ -1,0 +1,15 @@
+# The compiled site directory
+_site/
+
+# Jekyll cache folders
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby environment/dependency caches
+.bundle/
+vendor/
+
+# OS generated files
+.DS_Store
+Thumbs.db
