@@ -8,3 +8,7 @@ baseurl: ""
 url: "https://paidge.com"
 github_username: eugenelet
 twitter_username: eugenelet
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
