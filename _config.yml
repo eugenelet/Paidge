@@ -1,7 +1,10 @@
 title: Paidge
-description: Research notes on Computer Vision, AI, and Robotics.
+author: Eugene Lee
+email: eugene@paidge.com
+description: Research notes on Computer Vision, AI, and Language Models.
 theme: minima
 markdown: kramdown
+baseurl: ""
 url: "https://paidge.com"
 github_username: eugenelet
 twitter_username: eugenelet
