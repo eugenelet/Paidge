@@ -200,11 +200,21 @@ Select a research vector below to isolate the literature and view its trend.
 
     md += "</div>\n\n"
 
-    # Updated CSS with Qualcomm Blue (#3253DC) active states and glowing borders
+    # CSS updated to include Timeline architecture elements
     md += """<style>
+  /* Button Styles */
   .topic-pill { padding: 6px 14px; background: #1a202c; border: 1px solid #4a5568; color: #a0aec0; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s; }
   .topic-pill.active { background: #3253DC; color: white; border-color: #6382f2; box-shadow: 0 0 8px rgba(50, 83, 220, 0.4); }
   .topic-pill:hover:not(.active) { background: #2d3748; color: white; }
+  
+  /* Epistemic Step-Function (Timeline) Styles */
+  .timeline-container { border-left: 2px solid #3253DC; margin-left: 12px; padding-left: 24px; position: relative; margin-top: 2rem; margin-bottom: 3rem; }
+  .timeline-item { position: relative; margin-bottom: 2rem; }
+  .timeline-node { position: absolute; left: -30px; top: 6px; width: 10px; height: 10px; background: #3253DC; border-radius: 50%; box-shadow: 0 0 8px rgba(99, 130, 242, 0.8); border: 2px solid #16181d; z-index: 10;}
+  .timeline-date { background: #2d3748; color: #cbd5e0; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 0.8rem; letter-spacing: 0.5px; }
+  .paper-link { color: #e2e8f0; font-weight: 600; font-size: 1.05rem; text-decoration: none; transition: color 0.2s; }
+  .paper-link:hover { color: #6382f2; }
+  .takeaway-text { color: #a0aec0; font-size: 0.95rem; line-height: 1.5; margin-top: 6px; }
 </style>
 
 <script>
@@ -238,7 +248,6 @@ Select a research vector below to isolate the literature and view its trend.
         md += f'<div class="topic-section-group" data-topic="{slug}" markdown="1">\n\n'
         md += f"## {emoji} {topic}\n\n"
 
-        # Executive Slate box with Qualcomm Blue accent bar and high-contrast electric blue header
         md += f"""<div style="background: #16181d; border: 1px solid #2d3748; border-left: 4px solid #3253DC; padding: 1.25rem; border-radius: 4px 8px 8px 4px; margin: 1.25rem 0 2rem 0;">
   <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
     <span style="font-size: 1.1rem;">🧭</span>
@@ -247,12 +256,23 @@ Select a research vector below to isolate the literature and view its trend.
   <p style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.6; margin: 0;">{frontier_text}</p>
 </div>\n\n"""
 
-        md += "| Date | Paper | Core Takeaway |\n| :---: | :--- | :--- |\n"
+        # The Timeline Generation Loop
+        md += '<div class="timeline-container">\n'
         for p in papers:
             date_badge = p.get("pub_date", "2026-01")
-            md += f"| `{date_badge}` | [{p['short_title']}]({p['web_url']}) | {p['takeaway']} |\n"
-
-        md += "\n</div>\n\n"
+            
+            md += f"""  <div class="timeline-item">
+    <div class="timeline-node"></div>
+    <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+      <span class="timeline-date">{date_badge}</span>
+      <a href="{p['web_url']}" class="paper-link">{p['short_title']}</a>
+    </div>
+    <div class="takeaway-text">
+      <span style="color: #4a5568; font-family: monospace;">└─</span> <em>"{p['takeaway']}"</em>
+    </div>
+  </div>\n"""
+            
+        md += "</div>\n\n</div>\n\n"
 
     with open(MASTER_PAGE_FILE, "w", encoding="utf-8") as f:
         f.write(md)

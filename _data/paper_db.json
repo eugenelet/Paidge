@@ -36,13 +36,13 @@
     "arxiv_url": "https://arxiv.org/abs/2605.31105v1"
   },
   "_frontiers": {
-    "Efficient Architectures": "The frontier is defined by a fundamental shift from discrete token attention to continuous functional representations governed by structured linear operators and recursive latent condensation, which reframe context processing as an optimization over compressed signal manifolds rather than fixed sequence lengths. This mathematical trajectory unifies algorithmic sparsity, modular memory integration, and dynamic system routing to resolve KV cache I/O bottlenecks, enabling order-of-magnitude efficiency gains through hardware-aware co-design and parameter-efficient workflows that preserve frontier performance without architectural overhaul.",
-    "Theory & Optimization": "The research frontier converges on a paradigm of stable, time-parallel optimization for recurrent systems that supplants unstable gradient propagation with continuous latent-space supervision and temporal derivative learning, effectively bridging biological plausibility with scalable error-driven approximation. This trajectory unifies generalization and representation fidelity by exploiting signal-reservoir output dynamics and signal-to-noise preconditioning to augment discrete prediction objectives, thereby enabling exact population-risk minimization while mitigating collapse through precise control of internal signal statistics.",
+    "Efficient Architectures": "The field exhibits a fundamental convergence toward continuous latent manifolds where discrete token dynamics are supplanted by functional representations and structured linear recurrences, mathematically resolving the quadratic attention scaling bottleneck via resolution-invariant operator learning and low-rank KV condensation while maintaining long-context fidelity through curvature-aware geometry. Concurrently, inference architectures are evolving from static computation graphs to adaptive, context-aware control systems that dynamically allocate compute via entropy-driven routing, speculative draft topologies, and sparse activation manifolds, enabling lossless compression of memory states and agentic workflows with sub-quadratic complexity and parameter-efficient generalization.",
+    "Theory & Optimization": "The collective trajectory indicates a fundamental departure from unstable, gradient-compressed autoregressive training toward stable, time-parallel optimization frameworks that substitute external supervision with intrinsic latent dynamics and self-calibrated confidence signals to eliminate representation collapse and resolve the severe gradient degradation inherent in standard linear projections. This mathematical unification via optimal transport and reservoir theory redefines the frontier as the direct evolution of generative distributions and rapid adaptation through world models, enabling exact population-risk minimization and one-step inference by reformulating learning as a continuous dynamical process rather than discrete token prediction.",
     "pub_date": "2026-01",
-    "Test-Time Adaptation": "The field is converging on a paradigm shift from static parameter optimization to dynamic inference-time computation, where capability acquisition is decoupled from model weights and formalized as the continuous optimization of auxiliary state spaces and iterative numerical processes during the forward pass. This trajectory establishes runtime computational allocation—spanning external memory dynamics, text-space gradient optimization, and meta-control orchestration—as the primary bottleneck and frontier for scaling frozen architectures without parametric or architectural modification.",
-    "In-Context Learning": "The current frontier converges on dynamic prompt optimization paradigms that fuse reinforcement learning with language-native iterative feedback, fundamentally addressing the dual bottlenecks of sample inefficiency and catastrophic forgetting inherent in static or gradient-sparse adaptation methods. This trajectory establishes a collective shift toward hybrid evolutionary-reflection mechanisms that navigate the prompt landscape via semantic self-correction rather than raw gradients, thereby decoupling rapid task-specific plasticity from the degradation of foundational model generalization.",
-    "Multimodal & Vision": "The field is converging on temporally decoupled multimodal architectures that disentangle knowledge acquisition from real-time inference via asynchronous retrieval pipelines, fundamentally shifting away from monolithic synchronous generation. This trajectory demands rigorous optimization of cross-temporal information flow under strict causal latency bounds, with the collective bottleneck residing in aligning heterogeneous processing rates without inducing phase lag or degrading streaming coherence.",
-    "Embodied AI & Robotics": "The frontier is characterized by a convergence toward minimal, stable objective functions for end-to-end latent world modeling that eliminate collapse heuristics via intrinsic mathematical constraints, enabling direct mapping from raw pixels to predictive representations capable of supporting rapid planning and physical reasoning. This trajectory indicates a fundamental shift toward unifying representation learning and control within a single optimization landscape, where robust causal inference is achieved by reducing the loss topology to its essential components rather than relying on auxiliary regularization or modular decomposition."
+    "Test-Time Adaptation": "The field converges on a paradigm of inference-time parameterization where frozen base models are dynamically augmented via fast weights, low-rank adapters, or external memory structures optimized through online gradients, hypernetworks, or meta-optimization loops, effectively transforming adaptation into a continuous, input-conditioned optimization process that expands effective capacity and context retention without architectural modification. This trajectory addresses the static weight bottleneck by treating model behavior as a differentiable function of the test distribution, enabling scalable, unsupervised personalization where instance-specific latent updates or recursive orchestration continuously recalibrate attention and memory dynamics to achieve persistent reasoning gains and long-context scaling within constant latency constraints.",
+    "In-Context Learning": "The field converges on a mathematical unification positing that in-context learning operates as implicit gradient descent mediated by rank-1 weight patches, catalyzing a paradigm shift from static retrieval to the dynamic optimization of demonstration manifolds via reinforcement learning and evolutionary strategies to maximize input-output controllability. This trajectory identifies the collective bottleneck as the efficient utilization of context, resolved by scaling example counts and optimizing their selection or projection into task-aware latent spaces, thereby enabling frozen models to replicate fine-tuning performance without weight updates by treating prompts as parameter-free, infinitely extensible adapters governed by the same optimization dynamics as explicit training.",
+    "Multimodal & Vision": "The field is transitioning from discrete, static multimodal alignment to a unified framework of continuous, disentangled latent dynamics where cross-modal integration is mediated by structured attention and predictive constraints, thereby resolving fundamental trade-offs between real-time latency, computational efficiency, and semantic fidelity. This trajectory advances through hierarchical feature coupling and orthogonal optimization in unquantized spaces, enabling autoregressive reasoning and robust compositionality while eliminating content leakage and aggregation artifacts inherent to rigid tokenization schemes.",
+    "Embodied AI & Robotics": "The current frontier coalesces around latent-space Vision-Language-Action architectures that integrate generative flow matching with stable, end-to-end world modeling to enable generalist physical reasoning and high-frequency dexterous control across diverse embodiments. This trajectory emphasizes mathematical tractability via minimal loss formulations and commodity-scale parameterization, revealing a critical bottleneck in scaling latent dynamics for real-time deployment while eliminating heuristic collapse mitigation in favor of intrinsic stability mechanisms."
   },
   "2304.08467v3.pdf": {
     "file": "2304.08467v3.pdf",
@@ -232,5 +232,671 @@
     "pub_date": "2025-12",
     "web_url": "/notes/test-time_adaptation/rl_conductor_agent_orchestration.html",
     "arxiv_url": "https://arxiv.org/abs/2512.04388v4"
+  },
+  "2410.05629v2.pdf": {
+    "file": "2410.05629v2.pdf",
+    "short_title": "Vector In-Context Learning",
+    "topic": "In-Context Learning",
+    "takeaway": "Lightweight embedding projectors enable frozen LLMs to perform in-context learning directly on continuous vectors across diverse modalities.",
+    "pub_date": "2024-10",
+    "web_url": "/notes/in-context_learning/vector_in-context_learning.html",
+    "arxiv_url": "https://arxiv.org/abs/2410.05629v2"
+  },
+  "2502.01567v2.pdf": {
+    "file": "2502.01567v2.pdf",
+    "short_title": "Latent Thought Models",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Introduces a novel architecture that dynamically optimizes instance-specific latent vectors during inference, unlocking new scaling dimensions for superior sample and parameter efficiency.",
+    "pub_date": "2025-02",
+    "web_url": "/notes/test-time_adaptation/latent_thought_models.html",
+    "arxiv_url": "https://arxiv.org/abs/2502.01567v2"
+  },
+  "2604.21100v1.pdf": {
+    "file": "2604.21100v1.pdf",
+    "short_title": "Preconditioned DeltaNet Architecture",
+    "topic": "Efficient Architectures",
+    "takeaway": "Diagonal preconditioning injects curvature-aware geometry into delta-rule recurrences, enabling exact online least-squares solutions with efficient parallel training and consistent long-context gains.",
+    "pub_date": "2026-04",
+    "web_url": "/notes/efficient_architectures/preconditioned_deltanet_architecture.html",
+    "arxiv_url": "https://arxiv.org/abs/2604.21100v1"
+  },
+  "2506.00495v1.pdf": {
+    "file": "2506.00495v1.pdf",
+    "short_title": "FLoE Sparse Adapter Selection",
+    "topic": "Efficient Architectures",
+    "takeaway": "FLoE slashes LLM fine-tuning costs by using Fisher information to sparsely activate only critical transformer layers for MoE-based LoRA adaptation.",
+    "pub_date": "2025-06",
+    "web_url": "/notes/efficient_architectures/floe_sparse_adapter_selection.html",
+    "arxiv_url": "https://arxiv.org/abs/2506.00495v1"
+  },
+  "2604.12946v1.pdf": {
+    "file": "2604.12946v1.pdf",
+    "short_title": "Stable Looped Language Models",
+    "topic": "Efficient Architectures",
+    "takeaway": "Stabilizes looped transformers via spectral norm constraints to scale compute predictably without inflating parameter counts.",
+    "pub_date": "2026-04",
+    "web_url": "/notes/efficient_architectures/stable_looped_language_models.html",
+    "arxiv_url": "https://arxiv.org/abs/2604.12946v1"
+  },
+  "2603.22281v1.pdf": {
+    "file": "2603.22281v1.pdf",
+    "short_title": "VLM-Guided Latent World Models",
+    "topic": "Multimodal & Vision",
+    "takeaway": "Merges dense JEPA dynamics with long-horizon VLM reasoning via hierarchical feature alignment to boost trajectory forecasting.",
+    "pub_date": "2026-03",
+    "web_url": "/notes/multimodal_&_vision/vlm-guided_latent_world_models.html",
+    "arxiv_url": "https://arxiv.org/abs/2603.22281v1"
+  },
+  "2412.06769v3.pdf": {
+    "file": "2412.06769v3.pdf",
+    "short_title": "Continuous Latent Reasoning",
+    "topic": "Efficient Architectures",
+    "takeaway": "Replacing discrete chain-of-thought tokens with continuous hidden states enables efficient, multi-path latent reasoning in LLMs.",
+    "pub_date": "2024-12",
+    "web_url": "/notes/efficient_architectures/continuous_latent_reasoning.html",
+    "arxiv_url": "https://arxiv.org/abs/2412.06769v3"
+  },
+  "2604.06169v1.pdf": {
+    "file": "2604.06169v1.pdf",
+    "short_title": "In-Place Test-Time Training",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Repurposes existing MLP projection matrices as dynamic fast weights to enable scalable, drop-in test-time adaptation for LLMs without costly retraining.",
+    "pub_date": "2026-04",
+    "web_url": "/notes/test-time_adaptation/in-place_test-time_training.html",
+    "arxiv_url": "https://arxiv.org/abs/2604.06169v1"
+  },
+  "2602.00397v1.pdf": {
+    "file": "2602.00397v1.pdf",
+    "short_title": "FastForward Predictive FFN Sparsity",
+    "topic": "Efficient Architectures",
+    "takeaway": "FastForward slashes LLM prefill latency via block-wise predictive FFN sparsity and error compensation, preserving accuracy while cutting compute costs.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/efficient_architectures/fastforward_predictive_ffn_sparsity.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.00397v1"
+  },
+  "2411.05877v1.pdf": {
+    "file": "2411.05877v1.pdf",
+    "short_title": "GenerativeAdapter On-The-Fly Adaptation",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Compresses streaming context into low-rank parameter updates via a single forward pass, enabling efficient test-time adaptation without fine-tuning or inference overhead.",
+    "pub_date": "2024-11",
+    "web_url": "/notes/test-time_adaptation/generativeadapter_on-the-fly_adaptation.html",
+    "arxiv_url": "https://arxiv.org/abs/2411.05877v1"
+  },
+  "2603.10145v1.pdf": {
+    "file": "2603.10145v1.pdf",
+    "short_title": "LM Head Gradient Bottleneck",
+    "topic": "Theory & Optimization",
+    "takeaway": "The standard linear LM head compresses 95–99% of backpropagated gradients, fundamentally degrading training efficiency and convergence speed.",
+    "pub_date": "2026-03",
+    "web_url": "/notes/theory_&_optimization/lm_head_gradient_bottleneck.html",
+    "arxiv_url": "https://arxiv.org/abs/2603.10145v1"
+  },
+  "2507.04221v2.pdf": {
+    "file": "2507.04221v2.pdf",
+    "short_title": "Context Tuning for ICL",
+    "topic": "In-Context Learning",
+    "takeaway": "Gradient-optimizing in-context demonstrations and KV caches significantly boosts few-shot LLM adaptation without weight updates.",
+    "pub_date": "2025-07",
+    "web_url": "/notes/in-context_learning/context_tuning_for_icl.html",
+    "arxiv_url": "https://arxiv.org/abs/2507.04221v2"
+  },
+  "2402.08562v1.pdf": {
+    "file": "2402.08562v1.pdf",
+    "short_title": "Layer-Wise LoRA Expert Allocation",
+    "topic": "Efficient Architectures",
+    "takeaway": "Strategically distributing more LoRA experts to higher Transformer layers drastically reduces parameter-efficient fine-tuning redundancy while boosting performance.",
+    "pub_date": "2024-02",
+    "web_url": "/notes/efficient_architectures/layer-wise_lora_expert_allocation.html",
+    "arxiv_url": "https://arxiv.org/abs/2402.08562v1"
+  },
+  "2601.07812v1.pdf": {
+    "file": "2601.07812v1.pdf",
+    "short_title": "Multi-Image VLM Failure Analysis",
+    "topic": "Multimodal & Vision",
+    "takeaway": "Resolves cross-image aggregation failures in vision-language models through a controlled benchmark and targeted attention masking.",
+    "pub_date": "2026-01",
+    "web_url": "/notes/multimodal_&_vision/multi-image_vlm_failure_analysis.html",
+    "arxiv_url": "https://arxiv.org/abs/2601.07812v1"
+  },
+  "2603.07475v1.pdf": {
+    "file": "2603.07475v1.pdf",
+    "short_title": "Inference Layer Skipping",
+    "topic": "Efficient Architectures",
+    "takeaway": "Native diffusion LLMs develop redundant early layers that enable aggressive inference-time skipping with minimal accuracy loss, outperforming brittle autoregressive counterparts.",
+    "pub_date": "2026-03",
+    "web_url": "/notes/efficient_architectures/inference_layer_skipping.html",
+    "arxiv_url": "https://arxiv.org/abs/2603.07475v1"
+  },
+  "2312.08762v1.pdf": {
+    "file": "2312.08762v1.pdf",
+    "short_title": "Multi-Modal Latent CoT",
+    "topic": "Multimodal & Vision",
+    "takeaway": "Leverages diffusion processes to create deeply aligned text-image latent spaces, dramatically improving multi-modal chain-of-thought reasoning accuracy.",
+    "pub_date": "2023-12",
+    "web_url": "/notes/multimodal_&_vision/multi-modal_latent_cot.html",
+    "arxiv_url": "https://arxiv.org/abs/2312.08762v1"
+  },
+  "2602.23643v1.pdf": {
+    "file": "2602.23643v1.pdf",
+    "short_title": "Superhuman Adaptable Intelligence Framework",
+    "topic": "Theory & Optimization",
+    "takeaway": "Proposes replacing the flawed AGI paradigm with Superhuman Adaptable Intelligence (SAI), emphasizing rapid task adaptation, self-supervised learning, and world models over autoregressive architectures.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/theory_&_optimization/superhuman_adaptable_intelligence_framework.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.23643v1"
+  },
+  "2603.01771v3.pdf": {
+    "file": "2603.01771v3.pdf",
+    "short_title": "Hyperparameter Trajectory Inference",
+    "topic": "Theory & Optimization",
+    "takeaway": "Leverages conditional Lagrangian optimal transport to mathematically model and interpolate neural network outputs across arbitrary hyperparameter settings, eliminating costly retraining.",
+    "pub_date": "2026-03",
+    "web_url": "/notes/theory_&_optimization/hyperparameter_trajectory_inference.html",
+    "arxiv_url": "https://arxiv.org/abs/2603.01771v3"
+  },
+  "2602.04770v2.pdf": {
+    "file": "2602.04770v2.pdf",
+    "short_title": "One-Step Drifting Generation",
+    "topic": "Theory & Optimization",
+    "takeaway": "Reformulates generative modeling as a training-time distribution evolution problem, enabling state-of-the-art one-step inference via a novel drift-based optimization objective.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/theory_&_optimization/one-step_drifting_generation.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.04770v2"
+  },
+  "2602.15902v1.pdf": {
+    "file": "2602.15902v1.pdf",
+    "short_title": "Doc-to-LoRA Instant Context Adaptation",
+    "topic": "In-Context Learning",
+    "takeaway": "A lightweight hypernetwork instantly converts long prompts into LoRA adapters, eliminating KV-cache overhead while preserving in-context learning performance.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/in-context_learning/doc-to-lora_instant_context_adaptation.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.15902v1"
+  },
+  "2506.06105v2.pdf": {
+    "file": "2506.06105v2.pdf",
+    "short_title": "Text-Driven LoRA Generation",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "A hypernetwork dynamically generates task-specific LoRA adapters from natural language at inference, enabling zero-shot adaptation without retraining.",
+    "pub_date": "2025-06",
+    "web_url": "/notes/test-time_adaptation/text-driven_lora_generation.html",
+    "arxiv_url": "https://arxiv.org/abs/2506.06105v2"
+  },
+  "2602.10229v1.pdf": {
+    "file": "2602.10229v1.pdf",
+    "short_title": "Latent Reasoning via Fused Tokens",
+    "topic": "Efficient Architectures",
+    "takeaway": "Fuses contextual hidden states with predictive vocabulary embeddings to enable stable, dynamic latent reasoning without verbose text chains.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/efficient_architectures/latent_reasoning_via_fused_tokens.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.10229v1"
+  },
+  "2507.16003v3.pdf": {
+    "file": "2507.16003v3.pdf",
+    "short_title": "Implicit Dynamics of ICL",
+    "topic": "In-Context Learning",
+    "takeaway": "Proves that transformer blocks mathematically convert prompt context into rank-1 weight updates, unifying in-context learning with implicit gradient descent.",
+    "pub_date": "2025-07",
+    "web_url": "/notes/in-context_learning/implicit_dynamics_of_icl.html",
+    "arxiv_url": "https://arxiv.org/abs/2507.16003v3"
+  },
+  "2502.17416v1.pdf": {
+    "file": "2502.17416v1.pdf",
+    "short_title": "Looped Transformers for Reasoning",
+    "topic": "Efficient Architectures",
+    "takeaway": "Iterative weight-sharing enables deep reasoning capabilities at a fraction of the parameter cost of standard architectures.",
+    "pub_date": "2025-02",
+    "web_url": "/notes/efficient_architectures/looped_transformers_for_reasoning.html",
+    "arxiv_url": "https://arxiv.org/abs/2502.17416v1"
+  },
+  "2603.26775v1.pdf": {
+    "file": "2603.26775v1.pdf",
+    "short_title": "Visual ICL Demo Selection",
+    "topic": "In-Context Learning",
+    "takeaway": "RL-driven demonstration selection outperforms kNN on objective visual ICL by actively balancing visual relevance with task-specific diversity.",
+    "pub_date": "2026-03",
+    "web_url": "/notes/in-context_learning/visual_icl_demo_selection.html",
+    "arxiv_url": "https://arxiv.org/abs/2603.26775v1"
+  },
+  "2510.26692v2.pdf": {
+    "file": "2510.26692v2.pdf",
+    "short_title": "Kimi Linear Architecture",
+    "topic": "Efficient Architectures",
+    "takeaway": "A hybrid linear attention design that slashes KV cache by 75%, accelerates decoding sixfold, and surpasses full-attention performance.",
+    "pub_date": "2025-10",
+    "web_url": "/notes/efficient_architectures/kimi_linear_architecture.html",
+    "arxiv_url": "https://arxiv.org/abs/2510.26692v2"
+  },
+  "2603.08899v1.pdf": {
+    "file": "2603.08899v1.pdf",
+    "short_title": "Future-Aware Speculative Decoding",
+    "topic": "Efficient Architectures",
+    "takeaway": "Equips draft models with future-oriented contemplate tokens to slash inference latency while preserving output quality.",
+    "pub_date": "2026-03",
+    "web_url": "/notes/efficient_architectures/future-aware_speculative_decoding.html",
+    "arxiv_url": "https://arxiv.org/abs/2603.08899v1"
+  },
+  "2604.09168v2.pdf": {
+    "file": "2604.09168v2.pdf",
+    "short_title": "Elastic Looped Transformers",
+    "topic": "Efficient Architectures",
+    "takeaway": "Weight-shared recurrent transformer blocks enable parameter-efficient visual generation with flexible test-time compute via intra-loop self-distillation.",
+    "pub_date": "2026-04",
+    "web_url": "/notes/efficient_architectures/elastic_looped_transformers.html",
+    "arxiv_url": "https://arxiv.org/abs/2604.09168v2"
+  },
+  "2602.21371v1.pdf": {
+    "file": "2602.21371v1.pdf",
+    "short_title": "Interleaved Head Attention",
+    "topic": "Efficient Architectures",
+    "takeaway": "IHA breaks MHA's linear scaling limit by enabling cross-head mixing via pseudo-projections, boosting long-context retrieval and reasoning with minimal parameter overhead.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/efficient_architectures/interleaved_head_attention.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.21371v1"
+  },
+  "2602.05191v1.pdf": {
+    "file": "2602.05191v1.pdf",
+    "short_title": "Hierarchical Top-P Sparse Attention",
+    "topic": "Efficient Architectures",
+    "takeaway": "A two-stage hierarchical top-p mechanism adaptively allocates compute to deliver near-lossless, high-speed long-context LLM inference.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/efficient_architectures/hierarchical_top-p_sparse_attention.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.05191v1"
+  },
+  "2504.19874v1.pdf": {
+    "file": "2504.19874v1.pdf",
+    "short_title": "TurboQuant Online Vector Quantization",
+    "topic": "Efficient Architectures",
+    "takeaway": "TurboQuant achieves near-optimal, accelerator-friendly vector quantization via random rotation and residual transforms, enabling quality-neutral KV cache compression with near-zero indexing latency.",
+    "pub_date": "2025-04",
+    "web_url": "/notes/efficient_architectures/turboquant_online_vector_quantization.html",
+    "arxiv_url": "https://arxiv.org/abs/2504.19874v1"
+  },
+  "2602.09719v1.pdf": {
+    "file": "2602.09719v1.pdf",
+    "short_title": "Dynamic Layer-Wise TTA",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "A lightweight hypernetwork dynamically scales per-layer inference-time updates, stabilizing unsupervised prompt-specific adaptation without external supervision.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/test-time_adaptation/dynamic_layer-wise_tta.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.09719v1"
+  },
+  "2510.27688v1.pdf": {
+    "file": "2510.27688v1.pdf",
+    "short_title": "Continuous Next-Vector LLMs",
+    "topic": "Efficient Architectures",
+    "takeaway": "CALM replaces discrete token prediction with continuous vector generation, cutting autoregressive steps by K and significantly improving the performance-compute trade-off.",
+    "pub_date": "2025-10",
+    "web_url": "/notes/efficient_architectures/continuous_next-vector_llms.html",
+    "arxiv_url": "https://arxiv.org/abs/2510.27688v1"
+  },
+  "2505.19590v3.pdf": {
+    "file": "2505.19590v3.pdf",
+    "short_title": "Intrinsic RL for LLMs",
+    "topic": "Theory & Optimization",
+    "takeaway": "INTUITOR enables fully unsupervised LLM reasoning by replacing external rewards with self-generated confidence scores during policy optimization.",
+    "pub_date": "2025-05",
+    "web_url": "/notes/theory_&_optimization/intrinsic_rl_for_llms.html",
+    "arxiv_url": "https://arxiv.org/abs/2505.19590v3"
+  },
+  "2503.18866v2.pdf": {
+    "file": "2503.18866v2.pdf",
+    "short_title": "Latent Thought Bootstrapping",
+    "topic": "Theory & Optimization",
+    "takeaway": "An EM-driven bootstrapping loop infers latent reasoning traces from raw text to drastically improve data efficiency during language model pretraining.",
+    "pub_date": "2025-03",
+    "web_url": "/notes/theory_&_optimization/latent_thought_bootstrapping.html",
+    "arxiv_url": "https://arxiv.org/abs/2503.18866v2"
+  },
+  "2412.06464v3.pdf": {
+    "file": "2412.06464v3.pdf",
+    "short_title": "Gated DeltaNet Architecture",
+    "topic": "Efficient Architectures",
+    "takeaway": "Unifies gating and delta rules to enable hardware-efficient parallel training and precise long-context memory control in linear transformers.",
+    "pub_date": "2024-12",
+    "web_url": "/notes/efficient_architectures/gated_deltanet_architecture.html",
+    "arxiv_url": "https://arxiv.org/abs/2412.06464v3"
+  },
+  "2510.25741v4.pdf": {
+    "file": "2510.25741v4.pdf",
+    "short_title": "Looped Language Models",
+    "topic": "Efficient Architectures",
+    "takeaway": "LoopLM replaces explicit chain-of-thought with adaptive latent recurrence, delivering 2–3× parameter efficiency while matching larger frontier models.",
+    "pub_date": "2025-10",
+    "web_url": "/notes/efficient_architectures/looped_language_models.html",
+    "arxiv_url": "https://arxiv.org/abs/2510.25741v4"
+  },
+  "2602.08722v1.pdf": {
+    "file": "2602.08722v1.pdf",
+    "short_title": "Query-Oriented KV Selection",
+    "topic": "Efficient Architectures",
+    "takeaway": "QUOKA slashes LLM prefill latency by up to 7× via a training-free, query-aware sparse attention mechanism that preserves near-baseline accuracy.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/efficient_architectures/query-oriented_kv_selection.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.08722v1"
+  },
+  "2512.12268v1.pdf": {
+    "file": "2512.12268v1.pdf",
+    "short_title": "MetaTPT Dynamic Prompt Tuning",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "MetaTPT dynamically learns sample-specific augmentations via dual-loop meta-optimization to robustly adapt vision-language models at test time.",
+    "pub_date": "2025-12",
+    "web_url": "/notes/test-time_adaptation/metatpt_dynamic_prompt_tuning.html",
+    "arxiv_url": "https://arxiv.org/abs/2512.12268v1"
+  },
+  "2509.17874v2.pdf": {
+    "file": "2509.17874v2.pdf",
+    "short_title": "Nested Subspace Networks",
+    "topic": "Efficient Architectures",
+    "takeaway": "NSNs enable dynamic, granular compute adjustment at inference time for pre-trained LLMs via low-rank factorization, achieving smooth performance-efficiency trade-offs without retraining.",
+    "pub_date": "2025-09",
+    "web_url": "/notes/efficient_architectures/nested_subspace_networks.html",
+    "arxiv_url": "https://arxiv.org/abs/2509.17874v2"
+  },
+  "2602.24281v1.pdf": {
+    "file": "2602.24281v1.pdf",
+    "short_title": "Growing Memory RNNs",
+    "topic": "Efficient Architectures",
+    "takeaway": "Caching recurrent memory checkpoints scales effective context length while preserving sub-quadratic inference efficiency.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/efficient_architectures/growing_memory_rnns.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.24281v1"
+  },
+  "2512.13898v1.pdf": {
+    "file": "2512.13898v1.pdf",
+    "short_title": "Query-Only Test-Time Training",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Applying lightweight gradient updates to query projections during inference dynamically reallocates attention mass, outperforming static in-context learning and thinking tokens for long-context retrieval.",
+    "pub_date": "2025-12",
+    "web_url": "/notes/test-time_adaptation/query-only_test-time_training.html",
+    "arxiv_url": "https://arxiv.org/abs/2512.13898v1"
+  },
+  "2506.22694v2.pdf": {
+    "file": "2506.22694v2.pdf",
+    "short_title": "VocabTrim Vocabulary Pruning",
+    "topic": "Efficient Architectures",
+    "takeaway": "Training-free pruning of drafter LM heads slashes memory-bound drafting latency by up to 19% with negligible acceptance rate loss.",
+    "pub_date": "2025-06",
+    "web_url": "/notes/efficient_architectures/vocabtrim_vocabulary_pruning.html",
+    "arxiv_url": "https://arxiv.org/abs/2506.22694v2"
+  },
+  "2501.00663v1.pdf": {
+    "file": "2501.00663v1.pdf",
+    "short_title": "Titans Test-Time Memory",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Dynamically updates model parameters during inference to memorize surprising context, enabling efficient scaling beyond 2M tokens.",
+    "pub_date": "2025-01",
+    "web_url": "/notes/test-time_adaptation/titans_test-time_memory.html",
+    "arxiv_url": "https://arxiv.org/abs/2501.00663v1"
+  },
+  "2502.19673v1.pdf": {
+    "file": "2502.19673v1.pdf",
+    "short_title": "Zero-Shot Subject Style Composition",
+    "topic": "Multimodal & Vision",
+    "takeaway": "SubZero enables tuning-free subject-style-action composition in diffusion models via orthogonal attention and disentangled latent optimization, eliminating content leakage for efficient edge deployment.",
+    "pub_date": "2025-02",
+    "web_url": "/notes/multimodal_&_vision/zero-shot_subject_style_composition.html",
+    "arxiv_url": "https://arxiv.org/abs/2502.19673v1"
+  },
+  "2504.15364v4.pdf": {
+    "file": "2504.15364v4.pdf",
+    "short_title": "Key Similarity KV Cache Eviction",
+    "topic": "Efficient Architectures",
+    "takeaway": "KEYDIFF enables memory-constrained long-context LLM inference by evicting redundant KV cache entries via key similarity, cutting latency up to 30% with negligible accuracy loss.",
+    "pub_date": "2025-04",
+    "web_url": "/notes/efficient_architectures/key_similarity_kv_cache_eviction.html",
+    "arxiv_url": "https://arxiv.org/abs/2504.15364v4"
+  },
+  "2506.10943v2.pdf": {
+    "file": "2506.10943v2.pdf",
+    "short_title": "Self-Adapting LLMs",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "SEAL enables LLMs to autonomously generate and apply their own finetuning directives via reinforcement learning, achieving persistent weight updates for new tasks without external supervision.",
+    "pub_date": "2025-06",
+    "web_url": "/notes/test-time_adaptation/self-adapting_llms.html",
+    "arxiv_url": "https://arxiv.org/abs/2506.10943v2"
+  },
+  "1906.08305v2.pdf": {
+    "file": "1906.08305v2.pdf",
+    "short_title": "GRAM Efficient Architecture Search",
+    "topic": "Efficient Architectures",
+    "takeaway": "GRAM leverages graph propagation to efficiently search compact neural architectures, delivering SwiftNet models with unmatched accuracy-density and latency for edge deployment.",
+    "pub_date": "2019-06",
+    "web_url": "/notes/efficient_architectures/gram_efficient_architecture_search.html",
+    "arxiv_url": "https://arxiv.org/abs/1906.08305v2"
+  },
+  "2407.16712v1.pdf": {
+    "file": "2407.16712v1.pdf",
+    "short_title": "Sparse High Rank Adapters",
+    "topic": "Efficient Architectures",
+    "takeaway": "Modifying just 1–2% of base weights via sparse high-rank adapters enables rapid switching and multi-concept fusion with zero inference overhead.",
+    "pub_date": "2024-07",
+    "web_url": "/notes/efficient_architectures/sparse_high_rank_adapters.html",
+    "arxiv_url": "https://arxiv.org/abs/2407.16712v1"
+  },
+  "2411.07279v2.pdf": {
+    "file": "2411.07279v2.pdf",
+    "short_title": "Test-Time Training for LLMs",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Gradient-based parameter updates during inference using in-context examples drastically improve language models' reasoning and few-shot generalization on novel tasks.",
+    "pub_date": "2024-11",
+    "web_url": "/notes/test-time_adaptation/test-time_training_for_llms.html",
+    "arxiv_url": "https://arxiv.org/abs/2411.07279v2"
+  },
+  "2504.15364v3.pdf": {
+    "file": "2504.15364v3.pdf",
+    "short_title": "Key Similarity KV Cache Eviction",
+    "topic": "Efficient Architectures",
+    "takeaway": "KEYDIFF enables memory-constrained long-context LLM inference by evicting KV cache tokens based on key diversity rather than attention scores, cutting latency by up to 30% with negligible accuracy loss.",
+    "pub_date": "2025-04",
+    "web_url": "/notes/efficient_architectures/key_similarity_kv_cache_eviction.html",
+    "arxiv_url": "https://arxiv.org/abs/2504.15364v3"
+  },
+  "2406.09246v3.pdf": {
+    "file": "2406.09246v3.pdf",
+    "short_title": "OpenVLA Generalist Robot Policy",
+    "topic": "Embodied AI & Robotics",
+    "takeaway": "OpenVLA establishes a new SOTA for generalist robot control via an open-source 7B VLA optimized for efficient fine-tuning and commodity-GPU deployment.",
+    "pub_date": "2024-06",
+    "web_url": "/notes/embodied_ai_&_robotics/openvla_generalist_robot_policy.html",
+    "arxiv_url": "https://arxiv.org/abs/2406.09246v3"
+  },
+  "2512.24601v1.pdf": {
+    "file": "2512.24601v1.pdf",
+    "short_title": "Recursive Context Scaling",
+    "topic": "In-Context Learning",
+    "takeaway": "An inference-time scaffolding strategy that treats long prompts as an external environment, enabling LLMs to recursively decompose and process inputs orders of magnitude beyond their native context windows without architectural changes.",
+    "pub_date": "2025-12",
+    "web_url": "/notes/in-context_learning/recursive_context_scaling.html",
+    "arxiv_url": "https://arxiv.org/abs/2512.24601v1"
+  },
+  "2402.11574v1.pdf": {
+    "file": "2402.11574v1.pdf",
+    "short_title": "Visual In-Context Learning",
+    "topic": "In-Context Learning",
+    "takeaway": "Replaces visual ICL demonstrations with intent-driven text summaries to bypass cross-modal gaps and boost LVLM reasoning without retraining.",
+    "pub_date": "2024-02",
+    "web_url": "/notes/in-context_learning/visual_in-context_learning.html",
+    "arxiv_url": "https://arxiv.org/abs/2402.11574v1"
+  },
+  "2401.15077v3.pdf": {
+    "file": "2401.15077v3.pdf",
+    "short_title": "EAGLE Speculative Sampling",
+    "topic": "Efficient Architectures",
+    "takeaway": "EAGLE accelerates LLM inference up to 3.5x by predicting second-to-top-layer features and resolving sampling uncertainty with shifted tokens.",
+    "pub_date": "2024-01",
+    "web_url": "/notes/efficient_architectures/eagle_speculative_sampling.html",
+    "arxiv_url": "https://arxiv.org/abs/2401.15077v3"
+  },
+  "2602.00462v2.pdf": {
+    "file": "2602.00462v2.pdf",
+    "short_title": "LATENTLENS Visual Token Interpretability",
+    "topic": "Multimodal & Vision",
+    "takeaway": "LATENTLENS demonstrates that visual tokens in frozen LLMs are highly interpretable through contextual text matching, overturning prior assumptions about cross-modal alignment.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/multimodal_&_vision/latentlens_visual_token_interpretability.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.00462v2"
+  },
+  "2404.11018v3.pdf": {
+    "file": "2404.11018v3.pdf",
+    "short_title": "Many-Shot In-Context Learning",
+    "topic": "In-Context Learning",
+    "takeaway": "Scaling in-context learning to hundreds or thousands of examples dramatically boosts performance on complex reasoning and low-resource tasks, often matching fine-tuning without weight updates.",
+    "pub_date": "2024-04",
+    "web_url": "/notes/in-context_learning/many-shot_in-context_learning.html",
+    "arxiv_url": "https://arxiv.org/abs/2404.11018v3"
+  },
+  "2505.23884v1.pdf": {
+    "file": "2505.23884v1.pdf",
+    "short_title": "Large Chunk Test-Time Training",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Large-chunk online weight updates drastically boost GPU utilization and enable scalable test-time memory for long-context modeling.",
+    "pub_date": "2025-05",
+    "web_url": "/notes/test-time_adaptation/large_chunk_test-time_training.html",
+    "arxiv_url": "https://arxiv.org/abs/2505.23884v1"
+  },
+  "2406.16858v2.pdf": {
+    "file": "2406.16858v2.pdf",
+    "short_title": "Dynamic Draft Trees for LLMs",
+    "topic": "Efficient Architectures",
+    "takeaway": "EAGLE-2 achieves lossless 3x-5x LLM inference speedups by dynamically adjusting draft tree structures based on context-aware confidence scores.",
+    "pub_date": "2024-06",
+    "web_url": "/notes/efficient_architectures/dynamic_draft_trees_for_llms.html",
+    "arxiv_url": "https://arxiv.org/abs/2406.16858v2"
+  },
+  "2305.14502v2.pdf": {
+    "file": "2305.14502v2.pdf",
+    "short_title": "Sequential RL Example Retrieval",
+    "topic": "In-Context Learning",
+    "takeaway": "Frames in-context example selection as a sequential reinforcement learning problem to capture inter-example dependencies and boost LLM reasoning.",
+    "pub_date": "2023-05",
+    "web_url": "/notes/in-context_learning/sequential_rl_example_retrieval.html",
+    "arxiv_url": "https://arxiv.org/abs/2305.14502v2"
+  },
+  "2504.14051v6.pdf": {
+    "file": "2504.14051v6.pdf",
+    "short_title": "KV Cache Token Eviction",
+    "topic": "Efficient Architectures",
+    "takeaway": "CAOTE minimizes inference memory bottlenecks by computing closed-form token importance via attention output error, boosting long-context accuracy without retraining.",
+    "pub_date": "2025-04",
+    "web_url": "/notes/efficient_architectures/kv_cache_token_eviction.html",
+    "arxiv_url": "https://arxiv.org/abs/2504.14051v6"
+  },
+  "2503.04839v2.pdf": {
+    "file": "2503.04839v2.pdf",
+    "short_title": "Task-Aware Multimodal ICL",
+    "topic": "In-Context Learning",
+    "takeaway": "A lightweight transformer with task-aware attention dynamically optimizes demonstration sequences, substantially boosting multimodal in-context learning performance.",
+    "pub_date": "2025-03",
+    "web_url": "/notes/in-context_learning/task-aware_multimodal_icl.html",
+    "arxiv_url": "https://arxiv.org/abs/2503.04839v2"
+  },
+  "2502.02069v1.pdf": {
+    "file": "2502.02069v1.pdf",
+    "short_title": "Low-Rank Test-Time Vision Adaptation",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Replaces computationally heavy test-time prompt tuning with low-rank image encoder updates, enabling faster, memory-efficient domain adaptation for vision-language models.",
+    "pub_date": "2025-02",
+    "web_url": "/notes/test-time_adaptation/low-rank_test-time_vision_adaptation.html",
+    "arxiv_url": "https://arxiv.org/abs/2502.02069v1"
+  },
+  "2512.23675v2.pdf": {
+    "file": "2512.23675v2.pdf",
+    "short_title": "End-to-End Test-Time Training",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Compressing long contexts into model weights via inference-time gradient updates enables full-attention scaling with constant latency.",
+    "pub_date": "2025-12",
+    "web_url": "/notes/test-time_adaptation/end-to-end_test-time_training.html",
+    "arxiv_url": "https://arxiv.org/abs/2512.23675v2"
+  },
+  "2410.24164v3.pdf": {
+    "file": "2410.24164v3.pdf",
+    "short_title": "π0 General Dexterous Robot",
+    "topic": "Embodied AI & Robotics",
+    "takeaway": "Integrates pre-trained vision-language models with flow matching to enable generalist, high-frequency dexterous robot control across diverse embodiments.",
+    "pub_date": "2024-10",
+    "web_url": "/notes/embodied_ai_&_robotics/π0_general_dexterous_robot.html",
+    "arxiv_url": "https://arxiv.org/abs/2410.24164v3"
+  },
+  "2410.18351v1.pdf": {
+    "file": "2410.18351v1.pdf",
+    "short_title": "Entropy-Based Adaptive Speculative Decoding",
+    "topic": "Efficient Architectures",
+    "takeaway": "A training-free, entropy-driven early stopping mechanism that dynamically optimizes speculative decoding draft lengths to boost LLM inference speed by up to 57% without accuracy loss.",
+    "pub_date": "2024-10",
+    "web_url": "/notes/efficient_architectures/entropy-based_adaptive_speculative_decoding.html",
+    "arxiv_url": "https://arxiv.org/abs/2410.18351v1"
+  },
+  "2509.18085v3.pdf": {
+    "file": "2509.18085v3.pdf",
+    "short_title": "Spiffy Accelerates Diffusion LLMs",
+    "topic": "Efficient Architectures",
+    "takeaway": "Spiffy introduces lossless speculative decoding with directed draft graphs to accelerate diffusion LLM inference up to 7.9× without training auxiliary models.",
+    "pub_date": "2025-09",
+    "web_url": "/notes/efficient_architectures/spiffy_accelerates_diffusion_llms.html",
+    "arxiv_url": "https://arxiv.org/abs/2509.18085v3"
+  },
+  "2512.16922v2.pdf": {
+    "file": "2512.16922v2.pdf",
+    "short_title": "Next-Embedding Prediction for Vision",
+    "topic": "Multimodal & Vision",
+    "takeaway": "Training Vision Transformers to autoregressively predict future patch embeddings directly in continuous space yields strong self-supervised visual learners without reconstruction or discrete tokenizers.",
+    "pub_date": "2025-12",
+    "web_url": "/notes/multimodal_&_vision/next-embedding_prediction_for_vision.html",
+    "arxiv_url": "https://arxiv.org/abs/2512.16922v2"
+  },
+  "2211.04486v1.pdf": {
+    "file": "2211.04486v1.pdf",
+    "short_title": "RL-Guided In-Context Learning",
+    "topic": "In-Context Learning",
+    "takeaway": "Reinforcement learning optimizes demonstration example selection to stabilize and boost in-context learning performance, particularly for smaller language models.",
+    "pub_date": "2022-11",
+    "web_url": "/notes/in-context_learning/rl-guided_in-context_learning.html",
+    "arxiv_url": "https://arxiv.org/abs/2211.04486v1"
+  },
+  "2512.24880v1.pdf": {
+    "file": "2512.24880v1.pdf",
+    "short_title": "Manifold-Constrained Hyper-Connections",
+    "topic": "Efficient Architectures",
+    "takeaway": "Constrains expanded residual connectivity on a doubly stochastic manifold to restore identity mapping, enabling stable and scalable large-scale LLM training.",
+    "pub_date": "2025-12",
+    "web_url": "/notes/efficient_architectures/manifold-constrained_hyper-connections.html",
+    "arxiv_url": "https://arxiv.org/abs/2512.24880v1"
+  },
+  "2505.20633v1.pdf": {
+    "file": "2505.20633v1.pdf",
+    "short_title": "Test-Time LLM Adaptation",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Minimizes input perplexity on unlabeled test data with LoRA updates to dynamically adapt LLMs without labeled data or catastrophic forgetting.",
+    "pub_date": "2025-05",
+    "web_url": "/notes/test-time_adaptation/test-time_llm_adaptation.html",
+    "arxiv_url": "https://arxiv.org/abs/2505.20633v1"
+  },
+  "2604.00086v1.pdf": {
+    "file": "2604.00086v1.pdf",
+    "short_title": "Hierarchical Vision-LLM Fusion",
+    "topic": "Multimodal & Vision",
+    "takeaway": "HIVE fuses multi-layer vision features directly into LLMs via cross-attention, boosting multimodal alignment and cutting training costs.",
+    "pub_date": "2026-04",
+    "web_url": "/notes/multimodal_&_vision/hierarchical_vision-llm_fusion.html",
+    "arxiv_url": "https://arxiv.org/abs/2604.00086v1"
+  },
+  "2511.17864v1.pdf": {
+    "file": "2511.17864v1.pdf",
+    "short_title": "Implicit Weight Patch Theory",
+    "topic": "In-Context Learning",
+    "takeaway": "Context effects in modern LLMs are mathematically equivalent to rank-1 MLP weight patches governed by input/output controllability.",
+    "pub_date": "2025-11",
+    "web_url": "/notes/in-context_learning/implicit_weight_patch_theory.html",
+    "arxiv_url": "https://arxiv.org/abs/2511.17864v1"
+  },
+  "2602.06358v1.pdf": {
+    "file": "2602.06358v1.pdf",
+    "short_title": "Context-to-LoRA Hypernetwork",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "A bottleneck-free hypernetwork converts diverse contexts into high-quality LoRA adapters in a single forward pass, enabling instant, compute-efficient LLM adaptation without iterative fine-tuning.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/test-time_adaptation/context-to-lora_hypernetwork.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.06358v1"
   }
 }
