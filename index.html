@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div class="home">
-  <p style="font-size: 1.1rem; color: #555;">
+  <p style="font-size: 1.1rem; color: #555; line-height: 1.6;">
     <strong>Paidge</strong> stands for <em>Personalized Artificial Intelligence on the Edge</em>. This research blog documents my efforts toward continuous Test-Time Adaptation (TTA) and direct parameter-space adaptation, allowing models to dynamically learn and align with individual users over time without central hosting.
   </p>
   
@@ -11,9 +11,26 @@ layout: default
     Curated by <a href="https://eugenelet.github.io" target="_blank" style="font-weight: 600;">Eugene Lee</a>.
   </p>
 
+  <div style="background: #16181d; border: 1px solid #2d3748; border-left: 4px solid #3253DC; padding: 1.5rem; border-radius: 6px; margin: 2rem 0 2.5rem 0;">
+    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;">
+      <div style="flex: 1; min-width: 250px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+          <span style="font-size: 1.2rem;">📚</span>
+          <strong style="color: #6382f2; font-size: 0.95rem; font-family: monospace; text-transform: uppercase; letter-spacing: 0.5px;">Active Literature Hub</strong>
+        </div>
+        <p style="color: #e2e8f0; font-size: 0.95rem; margin: 0; line-height: 1.5;">
+          Explore my LLM-curated knowledge base tracking State-of-the-Art field advancements, compression paradigms, and edge architectures.
+        </p>
+      </div>
+      <a href="{{ '/reading-list/' | relative_url }}" style="background: #3253DC; color: #ffffff; padding: 10px 22px; border-radius: 4px; font-weight: 700; font-size: 0.9rem; text-decoration: none; white-space: nowrap; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: opacity 0.2s;">
+        View Reading List →
+      </a>
+    </div>
+  </div>
+
   <hr style="border: 0; border-top: 1px solid #e2e8f0; margin-bottom: 2rem;">
 
-  <h2 class="post-list-heading" style="font-size: 1.5rem; margin-bottom: 1rem;">Research Notes</h2>
+  <h2 class="post-list-heading" style="font-size: 1.5rem; margin-bottom: 1rem;">Original Research Notes</h2>
   
   <ul class="post-list">
     {% for post in site.posts %}

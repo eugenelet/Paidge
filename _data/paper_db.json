@@ -1,0 +1,236 @@
+{
+  "2605.31559v1.pdf": {
+    "file": "2605.31559v1.pdf",
+    "short_title": "Functional Attention Architecture",
+    "topic": "Efficient Architectures",
+    "takeaway": "Lifts attention from discrete tokens to functional spaces via structured linear operators for efficient, resolution-invariant operator learning.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/efficient_architectures/functional_attention_architecture.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.31559v1"
+  },
+  "2606.08720v1.pdf": {
+    "file": "2606.08720v1.pdf",
+    "short_title": "Temporal Derivative Learning",
+    "topic": "Theory & Optimization",
+    "takeaway": "Temporal derivative learning bridges biologically plausible neural circuits with the computational power of error-driven gradient approximation.",
+    "pub_date": "2026-06",
+    "web_url": "/notes/theory_&_optimization/temporal_derivative_learning.html",
+    "arxiv_url": "https://arxiv.org/abs/2606.08720v1"
+  },
+  "2606.06479v1.pdf": {
+    "file": "2606.06479v1.pdf",
+    "short_title": "Pretraining RNNs Without Recurrence",
+    "topic": "Theory & Optimization",
+    "takeaway": "SMT replaces unstable BPTT with time-parallel supervised learning on Transformer-generated memory states, enabling stable O(1) gradient paths for RNN pretraining.",
+    "pub_date": "2026-06",
+    "web_url": "/notes/theory_&_optimization/pretraining_rnns_without_recurrence.html",
+    "arxiv_url": "https://arxiv.org/abs/2606.06479v1"
+  },
+  "2605.31105v1.pdf": {
+    "file": "2605.31105v1.pdf",
+    "short_title": "Global Regression KV Cache",
+    "topic": "Efficient Architectures",
+    "takeaway": "Training-free global ridge regression aligns compressed KV caches with full-cache attention, eliminating over-merging while preserving long-context performance.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/efficient_architectures/global_regression_kv_cache.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.31105v1"
+  },
+  "_frontiers": {
+    "Efficient Architectures": "The frontier is defined by a fundamental shift from discrete token attention to continuous functional representations governed by structured linear operators and recursive latent condensation, which reframe context processing as an optimization over compressed signal manifolds rather than fixed sequence lengths. This mathematical trajectory unifies algorithmic sparsity, modular memory integration, and dynamic system routing to resolve KV cache I/O bottlenecks, enabling order-of-magnitude efficiency gains through hardware-aware co-design and parameter-efficient workflows that preserve frontier performance without architectural overhaul.",
+    "Theory & Optimization": "The research frontier converges on a paradigm of stable, time-parallel optimization for recurrent systems that supplants unstable gradient propagation with continuous latent-space supervision and temporal derivative learning, effectively bridging biological plausibility with scalable error-driven approximation. This trajectory unifies generalization and representation fidelity by exploiting signal-reservoir output dynamics and signal-to-noise preconditioning to augment discrete prediction objectives, thereby enabling exact population-risk minimization while mitigating collapse through precise control of internal signal statistics.",
+    "pub_date": "2026-01",
+    "Test-Time Adaptation": "The field is converging on a paradigm shift from static parameter optimization to dynamic inference-time computation, where capability acquisition is decoupled from model weights and formalized as the continuous optimization of auxiliary state spaces and iterative numerical processes during the forward pass. This trajectory establishes runtime computational allocation—spanning external memory dynamics, text-space gradient optimization, and meta-control orchestration—as the primary bottleneck and frontier for scaling frozen architectures without parametric or architectural modification.",
+    "In-Context Learning": "The current frontier converges on dynamic prompt optimization paradigms that fuse reinforcement learning with language-native iterative feedback, fundamentally addressing the dual bottlenecks of sample inefficiency and catastrophic forgetting inherent in static or gradient-sparse adaptation methods. This trajectory establishes a collective shift toward hybrid evolutionary-reflection mechanisms that navigate the prompt landscape via semantic self-correction rather than raw gradients, thereby decoupling rapid task-specific plasticity from the degradation of foundational model generalization.",
+    "Multimodal & Vision": "The field is converging on temporally decoupled multimodal architectures that disentangle knowledge acquisition from real-time inference via asynchronous retrieval pipelines, fundamentally shifting away from monolithic synchronous generation. This trajectory demands rigorous optimization of cross-temporal information flow under strict causal latency bounds, with the collective bottleneck residing in aligning heterogeneous processing rates without inducing phase lag or degrading streaming coherence.",
+    "Embodied AI & Robotics": "The frontier is characterized by a convergence toward minimal, stable objective functions for end-to-end latent world modeling that eliminate collapse heuristics via intrinsic mathematical constraints, enabling direct mapping from raw pixels to predictive representations capable of supporting rapid planning and physical reasoning. This trajectory indicates a fundamental shift toward unifying representation learning and control within a single optimization landscape, where robust causal inference is achieved by reducing the loss topology to its essential components rather than relying on auxiliary regularization or modular decomposition."
+  },
+  "2304.08467v3.pdf": {
+    "file": "2304.08467v3.pdf",
+    "short_title": "Gist Token Prompt Compression",
+    "topic": "Efficient Architectures",
+    "takeaway": "Compresses arbitrary LLM prompts into cached gist tokens via modified attention masks, slashing inference compute by up to 40% with minimal quality loss.",
+    "pub_date": "2023-04",
+    "web_url": "/notes/efficient_architectures/gist_token_prompt_compression.html",
+    "arxiv_url": "https://arxiv.org/abs/2304.08467v3"
+  },
+  "2605.23904v2.pdf": {
+    "file": "2605.23904v2.pdf",
+    "short_title": "SkillOpt Text Space Agent Optimization",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Treats agent skills as trainable external state optimized via text-space gradients, enabling weight-free procedural adaptation across models and harnesses.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/test-time_adaptation/skillopt_text_space_agent_optimization.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.23904v2"
+  },
+  "2605.12357v1.pdf": {
+    "file": "2605.12357v1.pdf",
+    "short_title": "Compact Test-Time Memory",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "An 8×8 online memory matrix dynamically updates during inference, enabling frozen LLMs to efficiently retain long-term context without fine-tuning or context expansion.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/test-time_adaptation/compact_test-time_memory.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.12357v1"
+  },
+  "2602.21548v2.pdf": {
+    "file": "2602.21548v2.pdf",
+    "short_title": "DualPath KV Cache Optimization",
+    "topic": "Efficient Architectures",
+    "takeaway": "DualPath eliminates KV-cache I/O bottlenecks in agentic LLM inference by dynamically routing cache loads across prefill and decode engines to double system throughput.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/efficient_architectures/dualpath_kv_cache_optimization.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.21548v2"
+  },
+  "2507.19457v2.pdf": {
+    "file": "2507.19457v2.pdf",
+    "short_title": "Reflective Prompt Evolution",
+    "topic": "In-Context Learning",
+    "takeaway": "GEPA replaces sparse RL gradients with iterative natural language reflection and evolutionary search to optimize LLM prompts with drastically higher sample efficiency.",
+    "pub_date": "2025-07",
+    "web_url": "/notes/in-context_learning/reflective_prompt_evolution.html",
+    "arxiv_url": "https://arxiv.org/abs/2507.19457v2"
+  },
+  "2305.14788v2.pdf": {
+    "file": "2305.14788v2.pdf",
+    "short_title": "Efficient Long Context Compression",
+    "topic": "Efficient Architectures",
+    "takeaway": "Teaching LMs to recursively compress long contexts into accumulated soft prompts enables efficient window extension and faster inference without architectural overhaul.",
+    "pub_date": "2023-05",
+    "web_url": "/notes/efficient_architectures/efficient_long_context_compression.html",
+    "arxiv_url": "https://arxiv.org/abs/2305.14788v2"
+  },
+  "2605.22138v1.pdf": {
+    "file": "2605.22138v1.pdf",
+    "short_title": "Self-Regulated Simulative Planning",
+    "topic": "Efficient Architectures",
+    "takeaway": "Decomposing agentic reasoning into a self-regulated configurator and simulative planner slashes token consumption by up to 95% while matching trillion-parameter model performance.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/efficient_architectures/self-regulated_simulative_planning.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.22138v1"
+  },
+  "2603.23198v2.pdf": {
+    "file": "2603.23198v2.pdf",
+    "short_title": "Efficient Sparse LLM Kernels",
+    "topic": "Efficient Architectures",
+    "takeaway": "Custom CUDA kernels and sparse packing formats unlock >99% unstructured sparsity in LLMs for major throughput and memory gains with negligible accuracy loss.",
+    "pub_date": "2026-03",
+    "web_url": "/notes/efficient_architectures/efficient_sparse_llm_kernels.html",
+    "arxiv_url": "https://arxiv.org/abs/2603.23198v2"
+  },
+  "2605.15156v2.pdf": {
+    "file": "2605.15156v2.pdf",
+    "short_title": "Modular Memory Architecture",
+    "topic": "Efficient Architectures",
+    "takeaway": "Plug-and-play modular memory enables efficient, noise-robust knowledge integration in frozen LLMs without retraining or context expansion.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/efficient_architectures/modular_memory_architecture.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.15156v2"
+  },
+  "2603.19312v1.pdf": {
+    "file": "2603.19312v1.pdf",
+    "short_title": "Stable End-to-End World Models",
+    "topic": "Embodied AI & Robotics",
+    "takeaway": "LeWorldModel enables stable, end-to-end latent world modeling from raw pixels using only two loss terms, eliminating collapse heuristics while enabling fast planning and physical reasoning.",
+    "pub_date": "2026-03",
+    "web_url": "/notes/embodied_ai_&_robotics/stable_end-to-end_world_models.html",
+    "arxiv_url": "https://arxiv.org/abs/2603.19312v1"
+  },
+  "2605.12484v2.pdf": {
+    "file": "2605.12484v2.pdf",
+    "short_title": "Fast-Slow LLM Adaptation",
+    "topic": "In-Context Learning",
+    "takeaway": "Interleaving prompt optimization with reinforcement learning enables rapid task adaptation while preserving model plasticity and preventing catastrophic forgetting.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/in-context_learning/fast-slow_llm_adaptation.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.12484v2"
+  },
+  "2604.12452v2.pdf": {
+    "file": "2604.12452v2.pdf",
+    "short_title": "Latent Condensed Attention",
+    "topic": "Efficient Architectures",
+    "takeaway": "LCA natively condenses context within MLA’s latent space, slashing KV cache by 90% and accelerating prefilling by 2.5× without extra parameters.",
+    "pub_date": "2026-04",
+    "web_url": "/notes/efficient_architectures/latent_condensed_attention.html",
+    "arxiv_url": "https://arxiv.org/abs/2604.12452v2"
+  },
+  "2605.24956v1.pdf": {
+    "file": "2605.24956v1.pdf",
+    "short_title": "Next Implicit Token Prediction",
+    "topic": "Theory & Optimization",
+    "takeaway": "Augments discrete next-token prediction with continuous latent-space supervision to prevent representation collapse and boost downstream performance.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/theory_&_optimization/next_implicit_token_prediction.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.24956v1"
+  },
+  "2510.02327v2.pdf": {
+    "file": "2510.02327v2.pdf",
+    "short_title": "Tandem S2S-LLM Architecture",
+    "topic": "Efficient Architectures",
+    "takeaway": "A tandem architecture injects real-time LLM knowledge into a speech-to-speech model via oracle tokens, achieving cascaded-system quality without latency penalties.",
+    "pub_date": "2025-10",
+    "web_url": "/notes/efficient_architectures/tandem_s2s-llm_architecture.html",
+    "arxiv_url": "https://arxiv.org/abs/2510.02327v2"
+  },
+  "2506.14202v3.pdf": {
+    "file": "2506.14202v3.pdf",
+    "short_title": "DiffusionBlocks Block-Wise Training",
+    "topic": "Efficient Architectures",
+    "takeaway": "Recasting residual networks as diffusion processes enables memory-efficient, independent block training that matches end-to-end performance.",
+    "pub_date": "2025-06",
+    "web_url": "/notes/efficient_architectures/diffusionblocks_block-wise_training.html",
+    "arxiv_url": "https://arxiv.org/abs/2506.14202v3"
+  },
+  "2604.12928v3.pdf": {
+    "file": "2604.12928v3.pdf",
+    "short_title": "Asynchronous RAG for Speech",
+    "topic": "Multimodal & Vision",
+    "takeaway": "Integrates asynchronous retrieval into full-duplex speech models to boost factuality without sacrificing real-time conversational latency.",
+    "pub_date": "2026-04",
+    "web_url": "/notes/multimodal_&_vision/asynchronous_rag_for_speech.html",
+    "arxiv_url": "https://arxiv.org/abs/2604.12928v3"
+  },
+  "2602.16839v1.pdf": {
+    "file": "2602.16839v1.pdf",
+    "short_title": "Progressive Thought Encoding",
+    "topic": "Efficient Architectures",
+    "takeaway": "Encodes evicted KV cache tokens into LoRA adapters, enabling large reasoning models to train and infer under strict memory constraints without sacrificing accuracy.",
+    "pub_date": "2026-02",
+    "web_url": "/notes/efficient_architectures/progressive_thought_encoding.html",
+    "arxiv_url": "https://arxiv.org/abs/2602.16839v1"
+  },
+  "2605.23872v1.pdf": {
+    "file": "2605.23872v1.pdf",
+    "short_title": "Training-Free Looped Transformers",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "Retrofitting frozen LLMs with inference-time layer looping and numerical integration yields significant accuracy gains without any training or architectural changes.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/test-time_adaptation/training-free_looped_transformers.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.23872v1"
+  },
+  "2605.22502v1.pdf": {
+    "file": "2605.22502v1.pdf",
+    "short_title": "Agentic Workflow Compilation",
+    "topic": "Efficient Architectures",
+    "takeaway": "Fine-tuning small LLMs to internalize agentic workflows cuts inference costs by two orders of magnitude while maintaining near-frontier quality.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/efficient_architectures/agentic_workflow_compilation.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.22502v1"
+  },
+  "2605.01172v1.pdf": {
+    "file": "2605.01172v1.pdf",
+    "short_title": "Deep Learning Generalization Theory",
+    "topic": "Theory & Optimization",
+    "takeaway": "Unifies generalization phenomena through signal-reservoir output dynamics and enables exact population-risk training via a lightweight SNR preconditioner.",
+    "pub_date": "2026-05",
+    "web_url": "/notes/theory_&_optimization/deep_learning_generalization_theory.html",
+    "arxiv_url": "https://arxiv.org/abs/2605.01172v1"
+  },
+  "2512.04388v4.pdf": {
+    "file": "2512.04388v4.pdf",
+    "short_title": "RL Conductor Agent Orchestration",
+    "topic": "Test-Time Adaptation",
+    "takeaway": "A 7B RL-trained model dynamically orchestrates and recursively scales worker LLMs at inference time to achieve state-of-the-art reasoning performance.",
+    "pub_date": "2025-12",
+    "web_url": "/notes/test-time_adaptation/rl_conductor_agent_orchestration.html",
+    "arxiv_url": "https://arxiv.org/abs/2512.04388v4"
+  }
+}
