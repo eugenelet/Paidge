@@ -1,0 +1,22 @@
+# Give full access to traditional search engines
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+# Explicitly welcome AI Search and Training Bots to ingest your research
+User-agent: PerplexityBot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: CCBot
+Allow: /
+
+# Point all bots to your auto-generated map
+Sitemap: https://paidge.com/sitemap.xml
