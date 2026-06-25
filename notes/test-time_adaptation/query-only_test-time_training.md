@@ -9,11 +9,11 @@ parent: "Test-Time Adaptation"
 # Let’s (not) just put things in Context: Test-Time Training for Long-Context LLMs
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Single prefill to cache keys/values followed by targeted gradient updates exclusively on attention query projections, reusing the KV cache.
-* **Nuance**: Unlike decoding-based scaling (e.g., chain-of-thought) that generates more tokens with static attention, qTTT dynamically reallocates attention mass to buried evidence without altering model weights or architecture.
+* **Mechanism**: Performs a single prefill to cache keys/values, then applies targeted gradient updates exclusively to attention query projection matrices during inference while reusing the KV cache.
+* **Nuance**: Directly counteracts static self-attention's "score dilution" by increasing target-distractor logit margins at test time, unlike decoding-based scaling strategies that merely generate more text with fixed attention weights.
 
 #### 💡 Yield
-- Theoretically proves "score dilution" limits static attention and derives a logarithmic margin requirement; empirically delivers 12.6–14.1% average gains on LongBench-v2/ZeroScrolls under matched FLOP budgets, outperforming thinking-token baselines.
+- Theoretically proves a logarithmic margin requirement for long contexts and shows qTTT provably meets it; empirically delivers >12% average accuracy gains on LongBench-v2/ZeroScrolls under FLOP-matched budgets, consistently outperforming chain-of-thought baselines across model sizes.
 
 #### ⚠️ Limitations
-- Evaluated only on a single (k, n_TTT) trade-off point; gains are task-dependent (less effective for pure generation/summarization vs. retrieval); future work needed on adaptive compute scheduling and broader inference-time baselines.
+- Gains are task-dependent (minimal for pure summarization/generation where retrieval isn't the bottleneck), evaluated only at a single compute budget point, and lacks automated predictors for when to deploy qTTT versus decoding-based scaling.

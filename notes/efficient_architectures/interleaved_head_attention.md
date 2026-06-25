@@ -9,13 +9,12 @@ parent: "Efficient Architectures"
 # Interleaved Head Attention
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Constructs P pseudo-queries, keys, and values per head as learned linear combinations of all original heads' projections, enabling up to P² cross-head attention patterns within each head.
-* **Nuance**: Unlike prior head-mixing methods that operate on attention logits post-computation, IHA mixes inputs before the standard softmax operator, preserving compatibility with optimized kernels like FlashAttention while fundamentally altering information flow across heads.
+* **Mechanism**: Constructs P pseudo-queries, keys, and values per head as learned linear combinations of all original heads' projections, inducing up to P² attention patterns per head instead of H independent matrices.
+* **Nuance**: Unlike prior cross-head mixing methods that operate on attention logits/weights, IHA mixes inputs before the attention operator, preserving standard softmax compatibility with efficient kernels like FlashAttention while achieving quadratic expressivity scaling.
 
 #### 💡 Yield
-- Theoretical proof of superior parameter efficiency for polynomial filters (Θ(√kn²) vs Θ(kn²)) and order-sensitive tasks (⌈√N_max⌉ heads vs N_max).
-- Empirical gains: 10–20% improvement in multi-key retrieval on RULER (4k–16k context), +5.8% on GSM8K and +2.8% on MATH-500 after reasoning fine-tuning, all under FLOP-matched training.
+- Theoretical: Proves strict expressivity gains over MHA; reduces parameter complexity for Polynomial Filters from Θ(kn²) to Θ(√kn²) and cuts required heads for CPM-3 from N_max to ⌈√N_max⌉.
+- Empirical: Achieves 10–20% relative improvement on Multi-Key Retrieval (RULER, 4k–16k context) and boosts GSM8K (+5.8%) and MATH-500 (+2.8%) after reasoning-focused fine-tuning under FLOP-matched training.
 
 #### ⚠️ Limitations
-- Global IHA increases attention cost to O(P²N²), requiring sliding-window schedules or adaptive pseudo-head allocation to remain practical.
-- Current validation is limited to decoder-only LLMs; extensions to encoder-decoder and vision architectures are noted as future work.
+- Global IHA can increase attention cost to O(P²N²), mitigated here by a sliding-window schedule; requires future work on adaptive pseudo-head allocation and extension to encoder-decoder/vision architectures.

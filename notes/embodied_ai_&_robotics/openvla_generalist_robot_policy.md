@@ -9,16 +9,15 @@ parent: "Embodied AI & Robotics"
 # OpenVLA: An Open-Source Vision-Language-Action Model
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Fuses multi-granularity visual features (DINOv2 + SigLIP) with a Llama-2 backbone, directly fine-tuned on 970k real-world robot episodes to predict actions as language tokens. Integrates LoRA for parameter-efficient adaptation and int4 quantization for low-memory inference.
-* **Nuance**: Replaces closed, massive VLAs (e.g., RT-2-X at 55B) and modular architectures with a streamlined, end-to-end token-fusion pipeline that achieves higher success rates with 7x fewer parameters while enabling commodity-GPU deployment.
+* **Mechanism**: Fuses DINOv2 and SigLIP visual encoders with a Llama 2 backbone, directly tokenizing robot actions into the VLM vocabulary and fine-tuning on 970k real-world episodes. Leverages LoRA for parameter-efficient adaptation and int4 quantization for low-memory inference.
+* **Nuance**: Unlike closed VLAs or modular generalist policies that stitch components together, OpenVLA adopts an end-to-end tokenization approach for actions, enabling out-of-the-box cross-embodiment control and open-source accessibility while matching full fine-tuning performance with only 1.4% trainable parameters.
 
 #### 💡 Yield
-- Surpasses RT-2-X by 16.5% absolute task success rate across 29 tasks and multiple robot embodiments.
-- Matches full fine-tuning performance using only 1.4% of trainable parameters via LoRA, cutting training compute by 8x.
-- Achieves bfloat16-level accuracy with int4 quantization, halving VRAM requirements while maintaining viable control frequencies (~3Hz).
+- Outperforms the closed 55B-parameter RT-2-X model by 16.5% absolute success rate across 29 tasks using 7x fewer parameters.
+- LoRA fine-tuning matches full fine-tuning accuracy while reducing trainable parameters to 1.4% and cutting compute time by 8x on consumer GPUs.
+- int4 quantization halves VRAM requirements without sacrificing task success rates, enabling deployment on hardware with <16GB memory.
 
 #### ⚠️ Limitations
-- Restricted to single-image observations; lacks support for multi-view, proprioceptive history, or heterogeneous sensory inputs.
-- Inference throughput remains insufficient for high-frequency control setups (e.g., 50Hz ALOHA systems).
-- Peak success rates rarely exceed 90%, highlighting reliability gaps in complex real-world scenarios.
-- Compute constraints left foundational design questions (e.g., base VLM scaling, internet-scale co-training benefits) unexplored.
+- Restricted to single-image observations, lacking support for multi-view cameras, proprioceptive history, or heterogeneous sensory inputs.
+- Inference throughput is insufficient for high-frequency control setups (e.g., 50Hz), limiting applicability to dexterous or bi-manual tasks.
+- Achieves <90% success rates on tested tasks, indicating reliability gaps, with many architectural and training design questions left unexplored due to compute constraints.

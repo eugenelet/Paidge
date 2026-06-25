@@ -9,15 +9,15 @@ parent: "Test-Time Adaptation"
 # Latent Thought Models with Variational Bayes Inference-Time Computation
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Explicit layered latent thought vectors are dynamically inferred via fast variational Bayes posterior updates during generation, cross-attending to each Transformer decoder layer.
-* **Nuance**: Departs from static parameter LLMs and iterative diffusion by treating inference-time compute as a primary scaling axis; performance scales with both model size and the number of latent optimization steps per token.
+* **Mechanism**: Dual-rate variational Bayes optimization that rapidly adapts instance-specific latent thought vectors during inference while slowly updating global decoder weights via cross-attention.
+* **Nuance**: Introduces inference steps and latent dimensionality as independent scaling axes, decoupling sample efficiency from fixed model parameter counts unlike traditional autoregressive or diffusion models that rely solely on static weights.
 
 #### 💡 Yield
-- Achieves GPT-2-Large level perplexity with only ~7% of parameters and significantly reduced training FLOPs per token, establishing new sample/compute efficiency frontiers.
-- Demonstrates emergent few-shot arithmetic reasoning and competitive conditional/unconditional text generation at smaller scales, outperforming autoregressive and diffusion baselines on MAUVE and generative perplexity.
-- Reveals that increasing inference steps improves both sample and compute efficiency, decoupling performance gains from traditional parameter scaling laws.
+- Matches GPT-2-Large validation perplexity with only 6.7% of parameters and equivalent training compute (trFLOPs/tok).
+- Proves performance scales along inference steps and latent size, demonstrating compute-per-token can substitute for data/model scaling.
+- Exhibits emergent few-shot arithmetic reasoning at scales where baseline LLMs fail, while maintaining competitive unconditional/conditional generation speed and quality.
 
 #### ⚠️ Limitations
-- Relies on a simple isotropic Gaussian prior for latent vectors rather than a learnable, structured prior model.
-- Lacks an explicit reward or verifier model in the latent space to guide optimization for complex reasoning tasks.
-- Empirical validation is currently limited to GPT-2 scale; scaling behavior beyond this regime remains unexplored.
+- Relies on a simplistic isotropic Gaussian prior rather than structured or learnable prior models for richer latent representations.
+- Lacks reward/verifier models in the latent space to guide optimization toward complex reasoning or planning tasks.
+- Empirical validation is currently confined to GPT-2 scale; larger-scale architectural and scaling law validations remain unexplored.

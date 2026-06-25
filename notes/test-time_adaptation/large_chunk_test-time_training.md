@@ -9,15 +9,14 @@ parent: "Test-Time Adaptation"
 # Test-Time Training Done Right
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Introduces Large Chunk Test-Time Training (LaCT), updating fast weights over massive chunks (2K–1M tokens) instead of per-token, integrated with sliding window attention and advanced optimizers like Muon.
-* **Nuance**: Reverses the conventional TTT assumption that tiny mini-batches are optimal; by treating large chunks as unordered sets, it achieves high parallelism and >70% GPU utilization using pure PyTorch, enabling nonlinear state scaling up to 40% of model parameters.
+* **Mechanism**: Updates model "fast weights" using massive unordered chunks (2K–1M tokens) combined with sliding window attention, replacing per-token or tiny-batch recurrence.
+* **Nuance**: Prior TTT methods use <64 token updates causing <5% GPU utilization and limited state scaling; LaCT achieves ~70% FLOPS utilization via pure PyTorch, scales nonlinear states to 40% of parameters, and supports advanced optimizers like Muon without custom kernels.
 
 #### 💡 Yield
-- Achieves orders-of-magnitude higher hardware efficiency (up to 70% peak FLOPS) without custom CUDA kernels.
-- Scales nonlinear fast weights significantly, outperforming per-token recurrence baselines (e.g., Mamba-2, GLA) in novel view synthesis and language modeling tasks.
-- Successfully processes extreme sequence lengths: up to 1M tokens for novel view synthesis and 56K tokens for autoregressive video diffusion.
+- Reaches up to 70% peak GPU throughput on A100s while scaling fast-weight memory capacity an order of magnitude beyond prior work.
+- Sets new benchmarks in novel view synthesis (1M+ context), language modeling, and autoregressive video diffusion (56K tokens) without hardware-specific code.
 
 #### ⚠️ Limitations
-- Performance gains are most pronounced when data naturally aligns with chunk structures (e.g., images, video frames); language tasks require additional architectural adjustments like window attention.
-- Relies on standard PyTorch compilation rather than hand-optimized custom kernels, which may limit absolute peak throughput compared to highly specialized implementations.
-- Validation is concentrated on specific long-context benchmarks; broader generalization across diverse hardware or out-of-distribution sequence types remains unexplored.
+- Chunk structure must be manually aligned with data topology (e.g., grouping image patches or video frames), limiting direct applicability to inherently sequential data like raw text.
+- Linear large-chunk variants underperform on unstructured sequences unless paired with nonlinear states and specialized optimizers.
+- Extremely long contexts still face inherent memory bandwidth constraints despite compute efficiency gains.

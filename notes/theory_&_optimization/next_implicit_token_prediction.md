@@ -9,11 +9,11 @@ parent: "Theory & Optimization"
 # NITP: Next Implicit Token Prediction for LLM Pre-training
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Predicts temporally shifted shallow-layer representations as dense, self-supervised targets via cosine similarity loss alongside standard NTP.
-* **Nuance**: Unlike prior multi-token or distillation methods that operate in discrete token space or align static layers, NITP enforces autoregressive latent-space geometry to explicitly counteract anisotropic representation collapse.
+* **Mechanism**: Predicts the implicit semantic content of the next token by aligning deep-layer hidden states with temporally shifted, stop-gradient shallow-layer representations via a cosine similarity loss.
+* **Nuance**: Unlike standard NTP or static layer-wise distillation, NITP enforces autoregressive temporal prediction in continuous space, explicitly regularizing the optimization landscape to counteract anisotropic geometric collapse without external encoders or heavy compute.
 
 #### 💡 Yield
-- Theoretically regularizes the optimization landscape by constraining under-constrained degrees of freedom; empirically delivers consistent downstream gains (e.g., +5.7% on MMLU-Pro for 9B MoE) with only ~2% additional training FLOPs and zero inference overhead.
+- Theoretically proves NTP leaves latent degrees of freedom under-constrained, causing representation degeneration; empirically shows consistent downstream gains (e.g., +5.7% on MMLU-Pro for 9B MoE) with only ~2% additional training FLOPs and zero inference cost.
 
 #### ⚠️ Limitations
-- Validated primarily on models up to 9B parameters; reliance on shallow-layer semantic richness may require architectural or corpus-specific tuning for broader generalization.
+- Relies heavily on shallow-layer representations preserving lexical/local semantics, which may degrade for tasks requiring deep contextual abstraction; performance is sensitive to the auxiliary loss weight λ across different model scales.

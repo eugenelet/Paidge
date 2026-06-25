@@ -9,11 +9,13 @@ parent: "Efficient Architectures"
 # EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Introduces a lightweight draft model that autoregressively predicts second-to-top-layer features instead of discrete tokens, incorporating a one-step-ahead token sequence to explicitly resolve sampling-induced feature ambiguity.
-* **Nuance**: Unlike Medusa or Lookahead which predict spaced tokens or rely on n-grams/Jacobi iteration with lower acceptance accuracy (~0.6), EAGLE operates at the continuous feature level with shifted-token conditioning, achieving ~0.8 acceptance accuracy without fine-tuning the backbone model.
+* **Mechanism**: Autoregressively predicts second-to-top-layer hidden states using a lightweight draft model, conditioned on the target LLM's features plus the next-step sampled token to eliminate feature ambiguity.
+* **Nuance**: Unlike Medusa or Lookahead which predict tokens directly or rely on n-grams/Jacobi iteration, EAGLE operates at the continuous feature level and explicitly injects shifted tokens to resolve sampling-induced uncertainty, boosting acceptance rates to ~0.8 without any backbone fine-tuning.
 
 #### 💡 Yield
-- Achieves 2.7x-3.5x latency speedup and doubles throughput across LLaMA2/Vicuna/Mixtral models while theoretically guaranteeing exact output distribution preservation for both greedy and non-greedy decoding.
+- Delivers 2.7x–3.5x latency speedup and doubles throughput across LLaMA2/Vicuna/Mixtral series while provably preserving the original output distribution for both greedy and non-greedy decoding.
+- Requires minimal training overhead (2–4B tokens, 1–2 days on consumer GPUs) and generalizes zero-shot across dialogue, code, math, and instruction tasks with negligible amortized cost.
 
 #### ⚠️ Limitations
-- Speedup ratio diminishes as batch size increases due to GPU memory/compute constraints; requires a small amount of training data (2-4B tokens or fixed ShareGPT subset) for the draft model, though amortized cost becomes negligible over time.
+- Acceleration gains degrade as batch size increases due to memory-bound verification bottlenecks and reduced GPU compute availability per token.
+- Draft model performance is optimized for its fixed training domain (ShareGPT); while sensitivity is low, deployment in highly out-of-distribution domains may slightly reduce acceptance rates without retraining.

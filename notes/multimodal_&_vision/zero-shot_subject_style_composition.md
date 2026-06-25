@@ -9,15 +9,11 @@ parent: "Multimodal & Vision"
 # SubZero: Composing Subject, Style, and Action via Zero-Shot Personalization
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Introduces a Disentangled Stochastic Optimal Controller for latent modulation combined with Orthogonal Temporal Aggregation (OTA) in cross-attention blocks to fuse subject, style, and text conditioning without fine-tuning.
-* **Nuance**: Unlike ControlNet or IP-Adapter pipelines that suffer from rigid conditioning or content/style leakage, SubZero uses zero-order optimization and custom-trained projectors to explicitly disentangle features, enabling flexible action prompts and diverse outputs while remaining inference-only.
+* **Mechanism**: Disentangled Stochastic Optimal Controller for iterative latent modulation combined with Orthogonal Temporal Aggregation (OTA) in cross-attention blocks to fuse text, subject, and style features without fine-tuning.
+* **Nuance**: Replaces rigid ControlNet pipelines and per-concept adapter training with zero-order latent optimization and orthogonal feature blending, enabling flexible action prompting and single-reference generalization while strictly decoupling content/style leakage.
 
 #### 💡 Yield
-- Establishes new state-of-the-art on face and object stylization benchmarks, outperforming RB-Modulation and IP-Adapter by 2–4% in average similarity scores.
-- Achieves 64–74% human preference rates for identity preservation and style alignment without requiring helper prompts or per-concept adapter training.
-- Demonstrates strong compatibility with fast diffusion backbones (e.g., SDXL-Lightning, Wurstchen) and low compute overhead suitable for on-device deployment.
+- Establishes new state-of-the-art on face/object-style composition benchmarks (e.g., +4–6% average similarity over RB-Modulation/IP-Adapter) and achieves 64–75% human preference scores while maintaining strict subject/style fidelity without helper prompts.
 
 #### ⚠️ Limitations
-- Requires initial offline training of custom subject/style projectors despite offering zero-shot inference capabilities.
-- Stochastic latent optimization introduces additional inference steps compared to purely feed-forward adapters, potentially limiting real-time throughput on highly constrained hardware.
-- Performance remains dependent on the quality and domain alignment of the underlying text-to-image backbone model.
+- Iterative latent optimization during inference increases computational overhead compared to single-pass methods, potentially constraining ultra-low-latency real-time deployment; performance remains dependent on the quality of pre-trained subject/style projectors.

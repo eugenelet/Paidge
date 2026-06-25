@@ -9,13 +9,14 @@ parent: "Test-Time Adaptation"
 # The Surprising Effectiveness of Test-Time Training for Few-Shot Learning
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Implements gradient-based test-time training by constructing leave-one-out in-context tasks from demonstration pairs, optimizing temporary LoRA adapters during inference to adapt the model to specific test instances.
-* **Nuance**: Unlike standard ICL which only conditions on examples without parameter updates, TTT explicitly minimizes a loss over synthetic test-time datasets, effectively bridging transductive learning and few-shot prompting while outperforming both zero-shot and fine-tuned baselines.
+* **Mechanism**: Constructs synthetic in-context tasks via leave-one-out permutations and applies explicit gradient-based parameter updates (LoRA adapters) during inference.
+* **Nuance**: Unlike standard ICL which relies solely on attention mechanisms without weight updates, TTT explicitly minimizes a loss over test-time demonstrations, effectively bridging transductive learning with few-shot prompting.
 
 #### 💡 Yield
-- Achieves 53.0% accuracy on ARC (8B model) and 61.9% when ensembled with program synthesis, matching human-level performance.
-- Delivers a 7.3 percentage point absolute gain over standard few-shot prompting on BIG-Bench Hard, with massive improvements (20-50 pts) on tasks requiring structural rule generalization like Dyck Languages.
+- Achieves 53.0% accuracy on ARC validation (8B LM) and 61.9% when ensembled with program synthesis, matching human-level performance.
+- Surpasses standard 10-shot prompting on BIG-Bench Hard by 7.3 percentage points, with massive gains (20-50 pp) on tasks requiring structural rule generalization.
 
 #### ⚠️ Limitations
-- Performance gains are highly task-dependent; algorithmic/computational tasks show limited or negative impacts due to pre-training exposure and sequential reasoning demands.
-- Computational overhead of gradient steps at inference limits scalability, and semi-private ARC evaluation results remain partially undisclosed for full transparency.
+- Gains are highly task-dependent; algorithmic/computational tasks show limited or negative impact due to pre-training exposure and sequential reasoning demands.
+- Computational overhead of gradient steps at inference time limits scalability for real-time applications.
+- Semi-private ARC evaluation results may shift upon public release, affecting final benchmark rankings.

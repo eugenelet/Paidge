@@ -9,15 +9,11 @@ parent: "In-Context Learning"
 # Visual In-Context Learning for Large Vision-Language Models
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Implements a three-stage pipeline: visual demonstration retrieval via ViT, cross-modal reranking with CLIP, and intent-oriented image summarization that converts visual examples into concise, task-specific text descriptions for language-only prompt composition.
-* **Nuance**: Unlike standard LVLM ICL that concatenates raw images (causing token bloat and cross-modal representation mismatches), VICL fully translates demonstrations into language, leveraging the LLM's native reasoning pathways while introducing in-context unlearning capabilities.
+* **Mechanism**: A three-stage pipeline (Visual Demonstration Retrieval, Intent-Oriented Image Summarization, and Composition) that extracts task-specific visual parsing via an LVLM and converts image demonstrations into concise text summaries to bypass cross-modal interaction bottlenecks.
+* **Nuance**: Unlike standard ICL that concatenates raw images (suffering from representation disparities and token limits), VICL shifts the demonstration modality entirely to language while preserving visual intent, relying solely on intra-LLM interactions for context utilization.
 
 #### 💡 Yield
-- Achieves consistent performance gains across five visual reasoning datasets by aligning demonstration semantics with task intent.
-- Information flow analysis confirms that text-only demonstrations improve cross-modal interaction efficiency and reduce representation disparity.
-- Demonstrates viable in-context unlearning, allowing models to selectively discard or reset specific knowledge via prompt engineering without parameter updates.
+- Validated across five visual reasoning datasets with improved ICL performance; information flow analysis confirms effective knowledge transfer; demonstrates viable in-context unlearning for resetting model knowledge without retraining.
 
 #### ⚠️ Limitations
-- Relies heavily on the quality of external retrieval (ViT/CLIP) and the LVLM's own captioning accuracy for intent summarization.
-- In-context unlearning is presented as a promising exploratory finding rather than a rigorously validated standalone technique.
-- Still subject to standard LLM context window constraints, albeit mitigated by reduced token counts per demonstration.
+- Depends on external pre-trained encoders (ViT, CLIP) for retrieval and reranking, increasing inference overhead; in-context unlearning is presented as a promising preliminary capability requiring broader empirical validation.

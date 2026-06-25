@@ -9,14 +9,15 @@ parent: "Efficient Architectures"
 # Scaling Latent Reasoning via Looped Language Models
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Introduces a weight-tied recurrent transformer stack (LoopLM) that iteratively updates latent states, coupled with an entropy-regularized gating mechanism that dynamically allocates computational depth via learned early-exit probabilities.
-* **Nuance**: Unlike standard transformers that scale via parameter count or explicit token generation (CoT), LoopLM decouples compute depth from model size through architectural recurrence, avoiding context-length bloat while enabling input-adaptive latent reasoning.
+* **Mechanism**: Introduces the LoopLM architecture, which recursively applies a shared weight-tied transformer block during the forward pass, coupled with an entropy-regularized exit gate that dynamically allocates recurrent depth per input.
+* **Nuance**: Unlike standard scaling or inference-time Chain-of-Thought (which expands output sequences and context windows), LoopLM deepens its internal computational graph via parameter sharing, decoupling compute depth from model size while preserving causal faithfulness and reducing post-hoc rationalization.
 
 #### 💡 Yield
-- Ouro 1.4B and 2.6B models match or exceed 4B–8B standard LLMs across math, science, and language benchmarks after scaling to 7.7T training tokens.
+- Ouro 1.4B and 2.6B models match or exceed 4B–8B standard transformers across math, science, and reasoning benchmarks after scaling to 7.7T tokens.
 - Recurrence dramatically improves knowledge manipulation and multi-hop composition without increasing raw knowledge storage capacity (~2 bits/parameter).
-- Latent iterative updates yield reasoning traces with higher causal faithfulness and improved safety alignment compared to explicit CoT methods.
+- Adaptive latent updates yield safer outputs and reasoning traces more tightly aligned with final predictions than explicit CoT.
 
 #### ⚠️ Limitations
-- Requires careful calibration of exit thresholds and entropy regularization coefficients to prevent early-exit collapse or over-computation on simple inputs.
-- Gains stem from architectural compute allocation rather than expanded knowledge capacity, limiting direct transferability to tasks requiring massive factual recall without complementary scaling.
+- Entropy-regularized gating requires careful hyperparameter tuning to prevent collapse to extreme depths or premature shallow exits.
+- Recurrent architectures inherently trade parallelization efficiency for parameter efficiency, potentially impacting raw inference throughput compared to standard transformers.
+- Scaling laws and saturation behaviors are newly characterized; long-term stability across diverse domains remains an open empirical question.

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Looped Transformers for Reasoning"
+title: "Looped Transformers For Reasoning"
 parent: "Efficient Architectures"
 ---
 
@@ -9,15 +9,14 @@ parent: "Efficient Architectures"
 # REASONING WITH LATENT THOUGHTS: ON THE POWER OF LOOPED TRANSFORMERS
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Introduces a weight-sharing looping mechanism where a k-layer transformer block is iteratively applied L times, creating an effective depth of kL while retaining only k-layer parameters. Also proposes a layer-similarity regularization to amplify this inductive bias during training.
-* **Nuance**: Decouples architectural depth from parameter count, contrasting with standard scaling laws that tie depth to model size. Unlike Chain-of-Thought which expands tokens at inference, looped models perform iterative computation internally via shared weights during the forward pass.
+* **Mechanism**: Iteratively applies a fixed k-layer transformer block L times via weight sharing, creating an effective depth of kL while maintaining a constant parameter count.
+* **Nuance**: Unlike standard deep models that scale parameters with depth, or explicit CoT prompting that requires external token generation, it generates multiple parallel "latent thoughts" per iteration internally without increasing model size or compute budget.
 
 #### 💡 Yield
-- Looping matches or exceeds iso-FLOP non-looped baselines on synthetic and downstream reasoning tasks despite using L× fewer parameters.
-- Theoretical proofs demonstrate looped transformers can simulate iterative algorithms, solve p-hop induction with O(log p) loops, and formally simulate multi-step Chain-of-Thought reasoning via masking and token decoding.
-- Downstream accuracy scales logarithmically with effective depth (loops), revealing a strong inductive bias toward compositional reasoning over memorization.
+- Empirically, (k ⊗ L) looped models match or outperform iso-FLOP non-looped baselines on synthetic and downstream reasoning tasks while using L× fewer parameters.
+- Theoretically proves looped transformers can simulate iterative algorithms and exactly replicate T steps of Chain-of-Thought reasoning with minimal architectural overhead.
+- Introduces a layer-similarity regularization that transfers the inductive bias toward reasoning to standard models without harming perplexity.
 
 #### ⚠️ Limitations
-- Evaluated primarily on synthetic procedural tasks; generalization to complex real-world, multimodal, or common-sense reasoning remains unverified.
-- Suffers from higher perplexity compared to parameter-matched baselines due to the inherent trade-off between depth and model capacity.
-- Lacks a formalized, unified definition of "reasoning," limiting direct comparison across diverse cognitive benchmarks and leaving broader architectural implications open for future work.
+- Primarily validated on synthetic procedural tasks (addition, p-hop induction) and limited benchmarks; generalization to complex multimodal or open-ended common-sense reasoning is unverified.
+- Pretraining perplexity degrades relative to iso-FLOP baselines due to reduced parameters, necessitating task-specific regularization to unlock downstream gains.

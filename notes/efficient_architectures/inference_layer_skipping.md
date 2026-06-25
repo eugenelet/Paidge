@@ -9,13 +9,13 @@ parent: "Efficient Architectures"
 # Skip the Good Part: Representation Structure & Inference-Time Layer Skipping in Diffusion vs. Autoregressive LLMs
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Static, task-agnostic inference-time layer skipping that bypasses high-similarity early layers in native diffusion LLMs without KV-cache sharing or architectural modifications.
-* **Nuance**: Exploits objective-induced hierarchical abstraction and representational redundancy rather than cache-centric optimizations, while revealing persistent initialization bias when AR models are adapted to diffusion training.
+* **Mechanism**: Static, task-agnostic inference-time layer skipping that bypasses high-similarity early layers in native diffusion models, leveraging coarse-to-fine abstraction redundancy without KV-cache sharing or architectural modifications.
+* **Nuance**: Unlike cache-centric or parameter-tied efficiency methods, this exploits objective-induced representational structure unique to native dLLMs, revealing that AR-initialized models retain brittle, non-redundant dynamics despite diffusion training.
 
 #### 💡 Yield
-- Native dLLMs achieve up to 18.75% FLOPs reduction while retaining >90% performance on reasoning and code benchmarks, whereas AR models degrade sharply under comparable skipping.
-- First systematic layer- and token-wise analysis proving diffusion objectives induce global abstraction with minimal recency bias, contrasting with AR's incremental, depth-dependent refinement.
+- Native dLLMs tolerate skipping up to 6 layers (18.75% FLOPs reduction) while retaining >90% performance on reasoning and code benchmarks, whereas native AR and AR-initialized models degrade sharply with minimal skipping.
+- First systematic layer/token-wise representational analysis demonstrating diffusion objectives induce hierarchical abstraction with early-layer redundancy and reduced recency bias compared to AR's incremental refinement.
 
 #### ⚠️ Limitations
-- Autoregressive and AR-initialized models exhibit brittle performance drops when layers are skipped, limiting cross-architecture applicability.
-- Aggressive consecutive layer skipping causes steeper accuracy degradation, and safety/out-of-distribution behaviors remain unverified beyond standard benchmarks.
+- Static skip policy lacks task-awareness or dynamic adaptation, potentially underperforming on out-of-distribution or safety-critical applications where skipped computations might affect nuanced behaviors.
+- Evaluation limited to text-only reasoning and code synthesis; extension to multimodal diffusion architectures remains unexplored.

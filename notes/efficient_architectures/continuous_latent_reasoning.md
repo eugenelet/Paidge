@@ -9,15 +9,15 @@ parent: "Efficient Architectures"
 # Training Large Language Models to Reason in a Continuous Latent Space
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Directly feeds the transformer's last hidden state back as the next input embedding instead of decoding it into discrete word tokens, creating a fully differentiable "continuous thought" loop.
-* **Nuance**: Unlike standard CoT or pause-token methods constrained by language space and autoregressive token generation, this approach operates in an unconstrained latent space, allowing superposition of multiple reasoning paths without fluency overhead.
+* **Mechanism**: Directly feeds the LLM's last hidden state (a "continuous thought") back as the next input embedding instead of decoding to discrete tokens, trained via a multi-stage curriculum.
+* **Nuance**: Differs from prior SOTA by eliminating language-space constraints entirely during reasoning, allowing superposition of multiple reasoning paths and implicit breadth-first search without explicit tree-search algorithms or pause tokens.
 
 #### 💡 Yield
-- Emerges implicit breadth-first search (BFS) behavior for planning without explicit training instructions
-- Achieves higher accuracy with significantly fewer generated tokens on logical and mathematical reasoning benchmarks (ProntoQA, ProsQA, GSM8k)
-- Demonstrates that continuous states efficiently encode intermediate variables and alternative next steps compared to discrete text
+- Outperforms standard CoT on logical reasoning tasks (ProntoQA, ProsQA) with significantly fewer generated tokens.
+- Achieves a superior accuracy-efficiency trade-off on math reasoning (GSM8k) by effectively chaining continuous thoughts.
+- Emerges with implicit BFS-like planning capabilities without explicit training objectives for search.
 
 #### ⚠️ Limitations
-- Requires a carefully designed multi-stage curriculum guided by language reasoning chains to converge effectively
-- Fails to outperform baselines when trained purely via gradient descent on Q&A without curriculum supervision
-- Scaling the paradigm to full pretraining and generalizing beyond supervised guidance remains unproven
+- Requires a multi-stage curriculum guided by language CoT data; struggles to learn latent reasoning purely from end-to-end gradient descent on Q&A pairs.
+- Performance gap remains compared to carefully tuned iCoT baselines, indicating room for improved training strategies.
+- Generalization to pretraining and broader reasoning challenges needs further exploration.

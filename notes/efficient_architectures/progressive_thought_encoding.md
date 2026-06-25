@@ -9,15 +9,13 @@ parent: "Efficient Architectures"
 # Training Large Reasoning Models Efficiently via Progressive Thought Encoding
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Dynamically compresses information from evicted KV cache tokens into fixed-size vector representations during RL rollouts, then folds these representations into lightweight LoRA adapters to preserve long-range context.
-* **Nuance**: Unlike sliding-window caches that permanently discard early tokens and degrade reasoning, or full-cache approaches that exhaust VRAM, this method maintains a constant memory footprint while continuously updating model weights with compressed historical states, enabling longer reasoning trajectories without architectural overhauls.
+* **Mechanism**: Dynamically encodes information from evicted KV cache tokens into fixed-size vector representations that are continuously folded into lightweight LoRA adapters during RL rollouts, preserving long-range context without expanding cache size.
+* **Nuance**: Unlike sliding-window or dynamic pruning strategies that permanently discard intermediate reasoning steps, this method maintains constant memory overhead while allowing the model to retain global reasoning signals through online parameter updates rather than token retention.
 
 #### 💡 Yield
-- Achieves up to +23.4% accuracy gains on AIME benchmarks under tight cache budgets compared to vanilla RL training and LoRA baselines.
-- Reduces peak GPU memory usage by nearly 50% during GRPO post-training while enabling scalable rollouts up to 64K tokens within a fixed 1K context window.
-- Demonstrates consistent performance scaling across Qwen2.5 (3B/7B) and DeepSeek-R1-Distill-Llama-8B models on six mathematical reasoning benchmarks.
+- Achieves +19.3% accuracy gain over LoRA-based fine-tuning and +29.9% over untuned LRMs across six mathematical benchmarks under tight cache budgets, with up to +23.4% improvement on AIME2024/2025.
+- Reduces peak GPU memory by ~50% during GRPO training while enabling stable scaling to 64K token generation lengths within a fixed 1K context window without performance plateauing.
 
 #### ⚠️ Limitations
-- Relies on standard sliding-window token eviction, which treats all evicted tokens equally without importance weighting (advanced dropping strategies noted as future work).
-- Evaluated exclusively on mathematical reasoning tasks; generalization to other domains or non-mathematical complex reasoning remains unverified.
-- Performance can degrade with excessive global token counts (e.g., #Global-64 underperforms #Global-32 at highly constrained cache sizes), indicating a sensitivity to adapter capacity tuning.
+- Relies on standard sliding-window eviction rather than advanced, compute-heavy token-dropping strategies (e.g., HeadKV, PyramidKV) due to significant runtime overhead during rollout.
+- Primarily validated on mathematical reasoning tasks; generalization to other long-context domains or non-mathematical symbolic manipulation remains untested.

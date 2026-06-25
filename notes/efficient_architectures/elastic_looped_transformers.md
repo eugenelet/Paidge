@@ -9,13 +9,14 @@ parent: "Efficient Architectures"
 # ELT: Elastic Looped Transformers for Visual Generation
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Intra-Loop Self Distillation (ILSD) trains intermediate loop states to match the final teacher trajectory, forcing progressive refinement so any early exit yields high-fidelity outputs.
-* **Nuance**: Unlike vanilla weight-tied recurrent models where only the fixed training depth converges to a valid solution, ELT decouples parameter count from computational depth, enabling true Any-Time inference without retraining or architectural changes.
+* **Mechanism**: Introduces Intra-Loop Self Distillation (ILSD), which trains intermediate recurrent loop states to mimic the final teacher trajectory, allowing weight-shared transformer blocks to produce high-fidelity outputs at any iteration count.
+* **Nuance**: Unlike vanilla looped transformers that only converge coherently at a fixed training depth, ELT forces progressive refinement across all loops, transforming a rigid recurrent architecture into an elastic system with dynamic test-time compute scaling.
 
 #### 💡 Yield
-- Achieves competitive FID of 2.0 on ImageNet-256 and FVD of 72.8 on UCF-101 with a 4× parameter reduction under iso-inference-compute settings compared to MaskGIT/MAGVIT baselines.
-- Enables dynamic scaling between latency-critical on-device generation and high-fidelity cloud rendering from a single trained model, effectively shifting the efficiency frontier for visual synthesis.
+- Achieves a 4× parameter reduction compared to MaskGIT and MAGVIT baselines while matching or improving FID (2.0) on ImageNet256×256 and FVD (72.8) on UCF-101 under iso-inference-compute settings.
+- Enables true any-time inference, allowing real-time traversal of the quality-compute Pareto frontier without retraining across both diffusion and masked generative transformer frameworks.
 
 #### ⚠️ Limitations
-- Generation quality remains strictly bound to the chosen inference loop count, requiring manual compute-quality trade-offs at deployment rather than automatic adaptation.
-- Evaluated primarily on class-conditional generation tasks; scalability and stability for unconditional or complex multi-modal scenarios remain open questions.
+- Quality-compute trade-offs require careful loop-count selection; suboptimal exit points may still yield marginal degradation despite distillation.
+- Training stability depends on precise alignment between student (intermediate) and teacher (full-loop) trajectories, which can be sensitive to hyperparameter scheduling.
+- Evaluated primarily on class-conditional image/video synthesis; generalization to unconditional generation, complex multi-modal tasks, or non-vision domains is not yet demonstrated.

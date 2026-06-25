@@ -9,14 +9,15 @@ parent: "In-Context Learning"
 # Learning to Select Visual In-Context Demonstrations
 
 #### 🚀 Technical Novelty
-* **Mechanism**: A Dueling DQN agent equipped with a query-centric Transformer Decoder sequentially constructs demonstration sets by optimizing for downstream MLLM accuracy (negative MAE reward).
-* **Nuance**: Shifts from static, similarity-first kNN retrieval to a dynamic RL policy that explicitly trades visual redundancy for label-space diversity and regression boundary coverage.
+* **Mechanism**: A Dueling DQN agent paired with a query-centric Transformer Decoder that sequentially constructs demonstration sets by maximizing downstream MLLM accuracy via a reward signal derived from prediction error (MAE).
+* **Nuance**: Replaces static, similarity-first kNN retrieval with a dynamic, task-aware RL policy that actively balances visual relevance with label-space diversity, explicitly avoiding the redundant "boundary" examples that plague unsupervised baselines.
 
 #### 💡 Yield
-- LSD significantly outperforms kNN on objective visual regression benchmarks (e.g., UTKFace, KADID-10k) while kNN remains optimal for subjective preference tasks.
-- The learned policy generalizes across unseen MLLMs (Gemma, Qwen, Phi) and exhibits emergent label-awareness despite receiving no explicit label supervision during training.
-- Empirical analysis confirms the *set* of selected demonstrations matters far more than their sequential order for downstream performance.
+- LSD significantly outperforms kNN on objective visual regression benchmarks (UTKFace, KADID-10k, etc.) by learning to select diverse boundary examples that better define regression spaces.
+- Reveals a fundamental task-dependent dichotomy: kNN remains optimal for subjective preference tasks, but learned selection is strictly necessary for objective/factual tasks.
+- Demonstrates strong cross-MLLM generalization, with the frozen RL policy maintaining performance advantages on unseen architectures (Qwen 2.5, Phi-3.5) without retraining.
 
 #### ⚠️ Limitations
-- The diversity-seeking policy can introduce unnecessary variance for subjective preference tasks, where strict visual similarity (kNN) remains superior.
-- Performance gains are task-dependent, requiring careful reward design to avoid over-optimizing for specific regression boundaries rather than general ICL robustness.
+- The diversity-seeking policy introduces unnecessary variance for subjective preference tasks, making it suboptimal where strict visual similarity (kNN) is preferred.
+- Relies on pre-computed embeddings (SigLIP) and MLLM feedback for rewards, limiting direct applicability to domains lacking clear regression metrics or accessible reward signals.
+- Sequential selection adds computational overhead compared to static retrieval, though it scales via FAISS-based approximate nearest-neighbor search.

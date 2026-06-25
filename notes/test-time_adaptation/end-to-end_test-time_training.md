@@ -9,15 +9,14 @@ parent: "Test-Time Adaptation"
 # End-to-End Test-Time Training for Long Context
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Sequentially updates model weights during inference using next-token prediction gradients, initialized via meta-learning to optimize the weight state specifically for test-time learning dynamics.
-* **Nuance**: Fully end-to-end differentiable across both training and inference phases; directly optimizes the final test loss via outer-loop meta-gradients rather than relying on heuristic dynamic evaluation or fixed update rules like prior TTT methods.
+* **Mechanism**: Continuously updates model weights during inference via next-token prediction on the input context, initialized through an outer-loop meta-learning optimization that prepares the network specifically for test-time adaptation.
+* **Nuance**: Unlike prior dynamic evaluation or TTT methods that decouple training and test objectives, this approach is fully end-to-end differentiable at both stages while maintaining O(1) decode latency, avoiding the quadratic scaling of full attention and the degradation seen in RNN/delta-net baselines beyond 32K context.
 
 #### 💡 Yield
-- Matches full-attention Transformer scaling curves up to 128K context while maintaining O(1) decode latency.
-- Achieves a 2.7× inference speedup over standard full attention on H100 hardware without perplexity degradation.
-- Demonstrates that long-context modeling can be framed as continual learning rather than architectural redesign.
+- Maintains loss scaling parity with full-attention Transformers up to 128K context length without performance degradation.
+- Achieves constant inference latency regardless of context length, delivering a 2.7× speedup over full attention at 128K on H100 hardware.
 
 #### ⚠️ Limitations
-- Inference-time gradient steps increase memory bandwidth pressure and require careful per-context learning rate scheduling.
-- Relies on next-token prediction loss at test time, which may degrade under distribution shifts or non-stationary contexts.
-- Evaluated primarily on standard language modeling; instruction-tuning, multi-domain generalization, and real-world deployment remain unexplored.
+- Requires computing and applying gradients during inference, increasing per-token compute and memory overhead compared to standard autoregressive decoding.
+- Extension fine-tuning for sliding-window/RNN baselines suffers from high gradient variance at longer contexts due to fewer sequences per batch, though TTT-E2E mitigates this through its meta-initialized design.
+- Relies on careful tuning of the test-time learning rate and meta-initialization hyperparameters to avoid instability during context compression.

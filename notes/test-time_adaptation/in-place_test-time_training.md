@@ -9,14 +9,11 @@ parent: "Test-Time Adaptation"
 # In-Place Test-Time Training
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Repurposes the final projection matrix of standard MLP blocks as adaptable "fast weights," updated via a parallelizable chunk-wise rule and an objective explicitly aligned with Next-Token Prediction.
-* **Nuance**: Unlike prior TTT methods that require specialized recurrent layers, costly from-scratch pretraining, or inefficient sequential per-token updates, this approach acts as a seamless "drop-in" enhancement that complements attention mechanisms while maintaining high accelerator throughput.
+* **Mechanism**: Treats the final projection matrix of existing MLP blocks as adaptable "fast weights," updating them in-place during inference via a chunk-wise rule and an objective explicitly aligned with next-token prediction.
+* **Nuance**: Eliminates the need for specialized TTT layers or scratch pretraining by acting as a complementary, drop-in enhancement to attention; replaces inefficient sequential per-token updates with highly parallelizable chunk-wise processing tailored for autoregressive modeling.
 
 #### 💡 Yield
-- Enables a 4B-parameter LLM to effectively process contexts up to 128k with negligible memory/throughput overhead.
-- Consistently outperforms competitive TTT baselines when pretrained from scratch, validating the architectural merit of MLP-based fast weights.
-- Ablations confirm optimal chunk sizes (512–1024) and prove that both convolutional future-token masking and projection transformations are essential for the LM-aligned objective.
+- Enables a 4B-parameter model to effectively process contexts up to 128k while maintaining negligible throughput/memory overhead; consistently outperforms competitive TTT baselines in both drop-in fine-tuning and full pretraining settings.
 
 #### ⚠️ Limitations
-- Integration with alternative efficient long-context backbones (e.g., State-Space Models or sparse attention variants) is explicitly deferred to future work.
-- Chunk-wise updates inherently present a performance-efficiency trade-off, requiring careful tuning of chunk granularity to balance parallelism and adaptation fidelity.
+- Requires careful tuning of chunk size to balance performance and efficiency gains; currently validated on standard Transformer architectures, with integration into alternative efficient long-context backbones (e.g., SSMs) deferred to future work.

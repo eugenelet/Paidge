@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import argparse
 from openai import OpenAI
 from pypdf import PdfReader
 
@@ -45,6 +46,10 @@ def load_db():
         if "pub_date" not in data:
             aid = extract_arxiv_id(filename, "")
             data["pub_date"] = derive_arxiv_date(aid) or "2026-01"
+            patched = True
+        
+        if "full_title" not in data:
+            data["full_title"] = data.get("short_title", "Unknown Title")
             patched = True
 
     if patched:
@@ -108,7 +113,7 @@ def synthesize_frontier(topic, paper_list):
     if not paper_list:
         return "Awaiting empirical literature for this vector."
 
-    takeaways_bulleted = "\n".join(f"- {p['takeaway']}" for p in paper_list)
+    takeaways_bulleted = "\n".join(f"- [{p['short_title']}]: {p['takeaway']}" for p in paper_list)
 
     prompt = f"""
     You are an elite academic AI research director. Look at the core empirical takeaways extracted from the literature tracked under the research pillar '{topic}':
@@ -117,7 +122,11 @@ def synthesize_frontier(topic, paper_list):
     
     Synthesize these distinct points into a dense, cohesive 2-sentence summary of the "Current Field Frontier". 
     Focus strictly on: What is the overarching paradigm shift, the shared mathematical trajectory, or the collective bottleneck these papers point toward? 
-    Write strictly about the science. Do not reference individual paper titles or use conversational filler.
+    
+    CRITICAL: You MUST cite the specific papers that contribute to your claims using their exact bracketed short titles.
+    Example: "This bottleneck is bypassed by localized projections [CoPA] and predictive loss [NDP]."
+    RULE: Do NOT combine brackets. Always write them separately (e.g., [PaperA] [PaperB]).
+    Write strictly about the science. Do not use conversational filler.
     """
 
     res = client.chat.completions.create(
@@ -125,7 +134,15 @@ def synthesize_frontier(topic, paper_list):
         messages=[{"role": "user", "content": prompt}],
         temperature=0.2,
     )
-    return res.choices[0].message.content.strip()
+    
+    frontier_text = res.choices[0].message.content.strip()
+    
+    for p in paper_list:
+        citation_target = f"[{p['short_title']}]"
+        badge_html = f'<a href="{p["web_url"]}" class="citation-badge">{p["short_title"]}</a>'
+        frontier_text = frontier_text.replace(citation_target, badge_html)
+        
+    return frontier_text
 
 
 def analyze_paper(text):
@@ -139,6 +156,7 @@ def analyze_paper(text):
     ---METADATA---
     Primary Category: [Pick exactly one from the 6 allowed topics]
     Short Title: [Clean 3-5 word title for web slug]
+    Full Title: [The exact, unabridged title of the paper]
     Pub Date: [YYYY-MM format, e.g. 2026-05]
     Core Takeaway: [A single punchy, high-signal sentence summarizing the advancement]
     ---END METADATA---
@@ -167,7 +185,7 @@ def analyze_paper(text):
     return res.choices[0].message.content
 
 
-def render_master_reading_list(db, updated_topics):
+def render_master_reading_list(db, updated_topics, force_synthesis=False):
     if "_frontiers" not in db:
         db["_frontiers"] = {}
 
@@ -190,31 +208,34 @@ permalink: /reading-list/
 Select a research vector below to isolate the literature and view its trend.
 
 <div class="topic-filter-container" style="display: flex; gap: 8px; flex-wrap: wrap; margin: 1.5rem 0 2rem 0;">
-  <button class="topic-pill active" onclick="filterTopic('all', this)">🌟 All Advancements</button>
+<button class="topic-pill active" onclick="filterTopic('all', this)">🌟 All Advancements</button>
 """
 
     for topic, emoji in TAXONOMY.items():
         if grouped[topic]:
             slug = clean_slug(topic)
-            md += f'  <button class="topic-pill" onclick="filterTopic(\'{slug}\', this)">{emoji} {topic}</button>\n'
+            md += f'<button class="topic-pill" onclick="filterTopic(\'{slug}\', this)">{emoji} {topic}</button>\n'
 
     md += "</div>\n\n"
 
-    # CSS updated to include Timeline architecture elements
+    # FIXED: Converted CSS to Light Theme variables for legibility
     md += """<style>
-  /* Button Styles */
-  .topic-pill { padding: 6px 14px; background: #1a202c; border: 1px solid #4a5568; color: #a0aec0; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s; }
+  .topic-pill { padding: 6px 14px; background: #f8fafc; border: 1px solid #cbd5e1; color: #475569; border-radius: 20px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.2s; }
   .topic-pill.active { background: #3253DC; color: white; border-color: #6382f2; box-shadow: 0 0 8px rgba(50, 83, 220, 0.4); }
-  .topic-pill:hover:not(.active) { background: #2d3748; color: white; }
+  .topic-pill:hover:not(.active) { background: #e2e8f0; color: #0f172a; }
   
-  /* Epistemic Step-Function (Timeline) Styles */
   .timeline-container { border-left: 2px solid #3253DC; margin-left: 12px; padding-left: 24px; position: relative; margin-top: 2rem; margin-bottom: 3rem; }
-  .timeline-item { position: relative; margin-bottom: 2rem; }
-  .timeline-node { position: absolute; left: -30px; top: 6px; width: 10px; height: 10px; background: #3253DC; border-radius: 50%; box-shadow: 0 0 8px rgba(99, 130, 242, 0.8); border: 2px solid #16181d; z-index: 10;}
-  .timeline-date { background: #2d3748; color: #cbd5e0; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 0.8rem; letter-spacing: 0.5px; }
-  .paper-link { color: #e2e8f0; font-weight: 600; font-size: 1.05rem; text-decoration: none; transition: color 0.2s; }
-  .paper-link:hover { color: #6382f2; }
-  .takeaway-text { color: #a0aec0; font-size: 0.95rem; line-height: 1.5; margin-top: 6px; }
+  .timeline-item { position: relative; margin-bottom: 2.5rem; }
+  .timeline-node { position: absolute; left: -30px; top: 6px; width: 10px; height: 10px; background: #3253DC; border-radius: 50%; box-shadow: 0 0 8px rgba(99, 130, 242, 0.4); border: 2px solid #ffffff; z-index: 10;}
+  .timeline-date { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 0.8rem; letter-spacing: 0.5px; }
+  .paper-link { color: #0f172a; font-weight: 700; font-size: 1.05rem; text-decoration: none; transition: color 0.2s; }
+  .paper-link:hover { color: #3253DC; }
+  .full-title-sub { font-size: 0.8rem; color: #64748b; font-style: italic; margin-top: 4px; margin-bottom: 4px; padding-left: 2px; }
+  .takeaway-text { color: #334155; font-size: 0.95rem; line-height: 1.5; margin-top: 8px; }
+  
+  /* Citation Badge for Light Theme */
+  .citation-badge { display: inline-block; font-size: 0.7rem; font-family: monospace; background: #eff6ff; color: #3253DC; border: 1px solid #bfdbfe; padding: 2px 6px; border-radius: 4px; text-decoration: none; vertical-align: middle; margin: 0 4px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: all 0.2s; position: relative; top: -1px;}
+  .citation-badge:hover { background: #3253DC; color: #ffffff; box-shadow: 0 0 6px rgba(50, 83, 220, 0.4); }
 </style>
 
 <script>
@@ -238,39 +259,50 @@ Select a research vector below to isolate the literature and view its trend.
         slug = clean_slug(topic)
         emoji = TAXONOMY[topic]
 
-        if topic in updated_topics or topic not in db["_frontiers"]:
+        if force_synthesis or topic in updated_topics or topic not in db["_frontiers"]:
             print(f"   🧠 Synthesizing macro-frontier for '{topic}'...")
             db["_frontiers"][topic] = synthesize_frontier(topic, papers)
             save_db(db)
 
         frontier_text = db["_frontiers"][topic]
 
+        # FIXED: Removed ALL indentation from injected HTML strings
         md += f'<div class="topic-section-group" data-topic="{slug}" markdown="1">\n\n'
         md += f"## {emoji} {topic}\n\n"
 
-        md += f"""<div style="background: #16181d; border: 1px solid #2d3748; border-left: 4px solid #3253DC; padding: 1.25rem; border-radius: 4px 8px 8px 4px; margin: 1.25rem 0 2rem 0;">
-  <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-    <span style="font-size: 1.1rem;">🧭</span>
-    <strong style="color: #6382f2; font-size: 0.85rem; font-family: monospace; text-transform: uppercase; letter-spacing: 1px;">Research Trend</strong>
-  </div>
-  <p style="color: #e2e8f0; font-size: 0.95rem; line-height: 1.6; margin: 0;">{frontier_text}</p>
+        md += f"""<div style="background: #16181d; border: 1px solid #2d3748; border-left: 4px solid #3253DC; padding: 1.25rem; border-radius: 4px 8px 8px 4px; margin: 1.25rem 0 2rem 0; color: #e2e8f0; font-size: 0.95rem; line-height: 1.6;" markdown="1">
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+<span style="font-size: 1.1rem;">🧭</span>
+<strong style="color: #6382f2; font-size: 0.85rem; font-family: monospace; text-transform: uppercase; letter-spacing: 1px;">Research Trend</strong>
+</div>
+
+{frontier_text}
+
 </div>\n\n"""
 
-        # The Timeline Generation Loop
         md += '<div class="timeline-container">\n'
         for p in papers:
             date_badge = p.get("pub_date", "2026-01")
+            short_t = p['short_title']
+            full_t = p.get('full_title', short_t)
             
-            md += f"""  <div class="timeline-item">
-    <div class="timeline-node"></div>
-    <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
-      <span class="timeline-date">{date_badge}</span>
-      <a href="{p['web_url']}" class="paper-link">{p['short_title']}</a>
-    </div>
-    <div class="takeaway-text">
-      <span style="color: #4a5568; font-family: monospace;">└─</span> <em>"{p['takeaway']}"</em>
-    </div>
-  </div>\n"""
+            full_title_html = ""
+            if short_t.lower() != full_t.lower():
+                full_title_html = f'\n<div class="full-title-sub">{full_t}</div>'
+            
+            # FIXED: Flushed left to avoid the `<pre><code>` trap
+            md += f"""<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">{date_badge}</span>
+<a href="{p['web_url']}" class="paper-link">{short_t}</a>
+</div>{full_title_html}
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> {p['takeaway']}
+
+</div>
+</div>\n"""
             
         md += "</div>\n\n</div>\n\n"
 
@@ -280,6 +312,10 @@ Select a research vector below to isolate the literature and view its trend.
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--force-synthesis", action="store_true", help="Force the LLM to rewrite all topic frontiers")
+    args = parser.parse_args()
+
     db = load_db()
     os.makedirs(BASE_KNOWLEDGE_DIR, exist_ok=True)
     newly_ingested_topics = set()
@@ -306,6 +342,10 @@ def main():
             ).group(1)
             topic = re.search(r"Primary Category:\s*(.*)", meta_box).group(1).strip()
             short_title = re.search(r"Short Title:\s*(.*)", meta_box).group(1).strip()
+            
+            full_title_match = re.search(r"Full Title:\s*(.*)", meta_box)
+            full_title = full_title_match.group(1).strip() if full_title_match else short_title
+            
             takeaway = re.search(r"Core Takeaway:\s*(.*)", meta_box).group(1).strip()
             content_md = re.sub(
                 r"---METADATA---.*---END METADATA---", "", raw_meta, flags=re.DOTALL
@@ -344,6 +384,7 @@ parent: "{matched_topic}"
             db[file] = {
                 "file": file,
                 "short_title": short_title,
+                "full_title": full_title,
                 "topic": matched_topic,
                 "takeaway": takeaway,
                 "pub_date": pub_date,
@@ -357,7 +398,7 @@ parent: "{matched_topic}"
         except Exception as e:
             print(f"   ✗ AI Parsing Failed for {file}: {e}")
 
-    render_master_reading_list(db, newly_ingested_topics)
+    render_master_reading_list(db, newly_ingested_topics, force_synthesis=args.force_synthesis)
 
 
 if __name__ == "__main__":

@@ -9,13 +9,11 @@ parent: "Test-Time Adaptation"
 # Titans: Learning to Memorize at Test Time
 
 #### 🚀 Technical Novelty
-* **Mechanism**: A deep neural long-term memory module that adaptively stores historical data into its parameters at test time using gradient-based surprise measures, momentum, and weight decay (forgetting).
-* **Nuance**: Unlike standard ICL (which relies on static prompt context) or linear RNNs/Transformers (which compress or cache history in fixed states), Titans explicitly updates weights during inference to memorize "surprising" events, decoupling short-term attention from long-term storage for superior length extrapolation.
+* **Mechanism**: Introduces a deep neural long-term memory module that uses gradient-based "surprise" metrics and adaptive decay to continuously update its parameters during inference, operating in parallel with short-term attention.
+* **Nuance**: Unlike standard ICL or fixed-weight models, Titans actively adapts its internal state at test time via a meta-optimization process mathematically equivalent to mini-batch gradient descent with momentum and weight decay, decoupling long-term storage from the context window.
 
 #### 💡 Yield
-- Outperforms Transformers and modern linear recurrent models (Mamba, HyenaDNA) across language modeling, commonsense reasoning, time series forecasting, and genomics benchmarks.
-- Scales to >2M context windows with high accuracy in needle-in-haystack tasks while maintaining fast, parallelizable training via tensorized mini-batch gradient descent.
+- Scales effectively to >2M context windows with high needle-in-haystack accuracy; outperforms Transformers and modern linear recurrent models (e.g., Mamba, Hyena) across language modeling, commonsense reasoning, time series forecasting, and genomics benchmarks.
 
 #### ⚠️ Limitations
-- Training throughput is slightly slower than highly optimized kernels like Mamba2 due to the computational overhead of deep memory updates and convolutional operations.
-- Architectural variants present a trade-off between expressiveness and speed, requiring careful tuning of decay and momentum hyperparameters for optimal memory management across tasks.
+- The deep memory variant incurs slightly lower training throughput than highly optimized kernels like Mamba2 due to complex transition processes; architectural trade-offs exist between expressive memory design (MAC/MAG variants) and raw training speed (MAL variant).

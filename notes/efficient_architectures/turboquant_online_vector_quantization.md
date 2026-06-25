@@ -9,13 +9,14 @@ parent: "Efficient Architectures"
 # TurboQuant: Online Vector Quantization with Near-optimal Distortion Rate
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Randomly rotates high-dimensional input vectors to induce a concentrated Beta distribution on coordinates, applies optimal scalar quantizers per coordinate, and combines them with a 1-bit Quantized Johnson-Lindenstrauss (QJL) transform on the residual to produce an unbiased inner-product estimator.
-* **Nuance**: Unlike product quantization or learned schemes that require heavy codebook storage or offline training, TurboQuant is data-oblivious, online-capable, and provably matches information-theoretic distortion bounds across all bit-widths without sacrificing accelerator vectorization compatibility.
+* **Mechanism**: Randomly rotates high-dimensional inputs to induce a concentrated Beta distribution on coordinates, applies optimal scalar Lloyd-Max quantizers per coordinate, and appends a 1-bit Quantized Johnson-Lindenstrauss transform on the residual for unbiased inner-product estimation.
+* **Nuance**: Unlike codebook-dependent methods like Product Quantization, TurboQuant is data-oblivious and online, eliminating training/storage overhead while achieving provably near-optimal distortion rates within a small constant factor across all bit-widths.
 
 #### 💡 Yield
-- Proves information-theoretic lower bounds on achievable distortion rate, demonstrating TurboQuant closely matches them within a ~2.7x constant factor.
-- Empirically achieves absolute quality neutrality at 3.5 bits/channel for LLM KV cache compression and outperforms Product Quantization/RabitQ in nearest-neighbor recall while reducing indexing time to virtually zero.
+- Achieves absolute quality neutrality at 3.5 bits/channel and marginal degradation at 2.5 bits/channel for LLM KV cache compression without accuracy loss.
+- Delivers superior nearest-neighbor search recall compared to PQ and RabitQ while reducing quantization and indexing time to virtually zero seconds.
+- Provides formal information-theoretic lower bounds on distortion rate, proving TurboQuant closely matches theoretical limits.
 
 #### ⚠️ Limitations
-- Optimized for worst-case/general data distributions rather than dataset-specific adaptations, potentially leaving gains on the table for highly structured inputs.
-- Theoretical distortion guarantees differ by a small constant factor from absolute information-theoretic limits, and the two-stage residual pipeline introduces minor computational overhead compared to single-pass scalar quantization.
+- Relies on high-dimensional geometric concentration properties; performance may degrade in low-dimensional spaces where coordinate independence breaks down.
+- Uses randomized quantization, introducing stochasticity that requires careful handling or averaging in strictly deterministic deployment pipelines.

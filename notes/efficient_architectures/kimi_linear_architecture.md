@@ -6,18 +6,18 @@ parent: "Efficient Architectures"
 
 **🔗 Source:** [arXiv](https://arxiv.org/abs/2510.26692v2)
 
-# Kimi Linear: An Expressive, Efficient Attention Architecture
+# KIMILINEAR: AN EXPRESSIVE, EFFICIENT ATTENTION ARCHITECTURE
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Introduces Kimi Delta Attention (KDA), a linear attention module featuring channel-wise gating and specialized Diagonal-Plus-Low-Rank (DPLR) transition matrices for hardware-efficient chunkwise parallelization.
-* **Nuance**: Unlike prior gated delta networks that use coarse head-wise forgetting, KDA applies fine-grained per-dimension decay rates, while its fixed 3:1 interleaving of linear and global attention layers avoids the routing overhead of intra-layer hybrids.
+* **Mechanism**: Introduces Kimi Delta Attention (KDA), a linear attention module that replaces coarse head-wise forgetting with channel-wise gating and parameterizes transition dynamics via a specialized Diagonal-Plus-Low-Rank (DPLR) matrix, enabling hardware-efficient chunkwise parallelization.
+* **Nuance**: Unlike prior hybrid or purely linear models that rely on scalar decay or standard DPLR formulations, KDA’s per-dimension forgetting rates provide finer-grained memory control while maintaining the parallelizable structure of classical delta rules, bridging the expressivity-efficiency gap without architectural overhead.
 
 #### 💡 Yield
-- Outperforms full-attention baselines across short-context, long-context (up to 1M tokens), and RL-style post-training tasks under identical training conditions.
-- Cuts KV cache memory by up to 75% and delivers up to 6.3× faster decoding throughput at maximum context length.
-- Fully open-sourced with optimized KDA kernels, vLLM integration, and pre-trained/instruction-tuned checkpoints.
+- Outperforms full Multi-Head Latent Attention (MLA) baselines across short-context, long-context, and RL-style post-training tasks using identical training recipes.
+- Cuts KV cache footprint by up to 75% and achieves up to 6.3× faster decoding throughput at 1M context length while maintaining stable Time Per Output Token (TPOT).
+- Delivers drop-in vLLM integration and open-sourced KDA kernels, enabling seamless deployment without modifying existing caching or scheduling interfaces.
 
 #### ⚠️ Limitations
-- Pure linear attention variants still face theoretical limits in exact copying and fine-grained retrieval for extreme long-context scenarios.
-- Hybrid designs remain sensitive to RoPE base frequency shifts when extrapolating context windows beyond training lengths.
-- Efficiency gains are heavily dependent on bespoke chunkwise kernel implementations; general DPLR formulations lack comparable speedups.
+- Pure linear attention still struggles with exact copying and fine-grained retrieval in extreme long-context scenarios, necessitating hybrid interleaving rather than full replacement.
+- Hybrid designs remain sensitive to RoPE base frequency adjustments, complicating context window extrapolation unless paired with NoPE-based full attention layers.
+- Empirical validation is primarily focused on language modeling; broader modality robustness or specialized domain generalization remains unexplored.

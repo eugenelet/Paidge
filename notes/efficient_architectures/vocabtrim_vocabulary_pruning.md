@@ -9,13 +9,14 @@ parent: "Efficient Architectures"
 # VOCABTRIM: Vocabulary Pruning for Efficient Speculative Decoding in LLMs
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Trims the drafter model's language modeling head to retain only the top-K most frequently sampled tokens from a calibration dataset, eliminating unnecessary logit computations over rare vocabulary items.
-* **Nuance**: Unlike prior SOTA methods that require task-specific drafter retraining or force shared vocabularies, this approach is entirely training-free and specifically targets the memory-bound drafting bottleneck to maximize speed-up without architectural modifications.
+* **Mechanism**: Trims the drafter model's LM head by retaining only the top-K most frequently sampled tokens from a calibration dataset, drastically reducing output dimensionality and inference compute.
+* **Nuance**: Unlike prior SOTA methods that require shared vocabularies or architectural modifications to drafters, VOCABTRIM is entirely training-free and bypasses vocabulary alignment constraints by focusing solely on pruning the drafting stage's memory bottleneck.
 
 #### 💡 Yield
-- Delivers 14–19% improvement in memory-bound speed-up (MBSU) across Llama-3 models on Spec-Bench with only a 1–5% drop in block efficiency/acceptance rate.
-- Demonstrates that calibration using target-model-generated completions yields superior vocabulary selection compared to raw text or draft-generated data, maximizing the speed-accuracy tradeoff.
+- Reduces drafter LM head size by up to 75% with negligible block efficiency drop (1–5%).
+- Achieves 14–19% improvement in memory-bound speed-up (MBSU) on Llama-3 models across Spec-Bench tasks.
+- Target-generated calibration datasets consistently outperform raw text or draft-generated data for optimal speed-accuracy trade-offs.
 
 #### ⚠️ Limitations
-- Requires task-specific recalibration for domains with low vocabulary overlap (e.g., coding), as a single trimmed set degrades performance on mismatched tasks.
-- Fixed top-K pruning strategy may not optimally balance speed and accuracy across varying hardware memory constraints or draft tree depths without further hyperparameter tuning.
+- Requires a representative calibration dataset to compute token frequencies; performance may degrade on domains with low vocabulary overlap (e.g., coding vs. general text).
+- Employs a static Top-K trimming strategy, limiting adaptability to dynamic or highly specialized downstream tasks without re-calibration.

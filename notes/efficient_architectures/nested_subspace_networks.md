@@ -9,15 +9,15 @@ parent: "Efficient Architectures"
 # Deep Hierarchical Learning with Nested Subspace Networks for Large Language Models
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Re-parameterizes linear layers using shared low-rank factor matrices (A, B) to construct a nested hierarchy of effective weights at varying ranks, optimized jointly via an uncertainty-aware objective that balances contributions across the hierarchy.
-* **Nuance**: Unlike static compression or discrete dynamic networks, NSNs provide a continuous, smooth compute-performance frontier post-hoc on frozen pre-trained models without altering tensor shapes or requiring specialized from-scratch training schemes.
+* **Mechanism**: Re-parameterizes linear layers into rank-trainable components using shared factor matrices (A, B), where effective weights at rank r are formed by prefixing these matrices to satisfy a strict nested subspace property.
+* **Nuance**: Unlike static compression or discrete dynamic networks, NSNs provide a smooth, continuous spectrum of compute budgets at inference time while remaining architecturally agnostic and applicable post-hoc to frozen pre-trained LLMs.
 
 #### 💡 Yield
 - Achieves up to 50% FLOPs reduction with only ~5% accuracy drop across multiple LLMs (Pythia, GPT-Neo, Gemma, Qwen).
-- Provides theoretical guarantees for granular budget control and smooth Pareto frontiers at inference.
-- Simultaneously satisfies instant test-time adaptability, post-hoc applicability to any foundation model, and architectural agnosticism.
+- Provides theoretical guarantees for granular budget control and a predictable compute-performance Pareto frontier.
+- Successfully adapts pre-trained foundation models without training from scratch or modifying network interfaces.
 
 #### ⚠️ Limitations
-- Currently applies uniform rank scaling across all layers rather than layer-specific adaptive compute.
-- Requires future work to correlate problem-specific information with layer-specific representational capacity for fine-grained control.
-- FLOPs reduction is bounded by a dimension-dependent break-even point, limiting gains for certain layer sizes or specific input/output configurations.
+- Currently applies uniform rank reduction/augmentation across all layers rather than layer-specific adaptive compute.
+- Requires solving the nontrivial problem of correlating problem-specific information with layer-specific representational capacity for future fine-grained control.
+- Training relies on an uncertainty-aware objective that may introduce complexity compared to standard fine-tuning pipelines.

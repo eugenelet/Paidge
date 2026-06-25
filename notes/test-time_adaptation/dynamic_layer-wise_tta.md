@@ -9,14 +9,12 @@ parent: "Test-Time Adaptation"
 # Unsupervised Layer-Wise Dynamic Test Time Adaptation for LLMs
 
 #### 🚀 Technical Novelty
-* **Mechanism**: Introduces SCALENET, a lightweight hypernetwork that predicts non-negative, per-layer and per-step learning rate multipliers for LoRA parameters during inference, conditioned on the input prompt.
-* **Nuance**: Unlike prior TTA methods relying on fixed global rates or static schedules, this approach learns fine-grained, prompt-dependent scaling patterns across transformer layers and adaptation steps, preventing destructive drift while maximizing early-update gains.
+* **Mechanism**: A prompt-conditioned hypernetwork (SCALENET) predicts non-negative, per-layer and per-step learning rate multipliers to rescale LoRA updates during inference.
+* **Nuance**: Replaces brittle fixed or step-wise global learning rates with fine-grained, input-dependent scaling that varies sharply across transformer blocks and adaptation steps, preventing destructive drift while maximizing early-update gains.
 
 #### 💡 Yield
-- Consistently reduces negative log-likelihood (NLL) and improves ROUGE-Lsum across Llama3/Qwen models on summarization and QA benchmarks compared to fixed-rate and step-wise TTA baselines.
-- Empirically validates that optimal unsupervised TTA requires aggressive initial updates followed by rapid damping, with highly non-uniform scaling needs even between adjacent query/value projections.
-- Enables efficient training via a first-order approximation that avoids expensive second-order derivatives while unrolling the inference-time adaptation process.
+- Consistently outperforms fixed-rate and step-wise baselines on NLL and ROUGE-Lsum across Llama3/Qwen models (3B–70B) and multiple summarization/retrieval datasets.
+- Visualization reveals SCALENET learns complex, non-monotonic scaling patterns that differ by projection type (Q/V) and layer depth, with peak update magnitudes naturally decaying after step 1.
 
 #### ⚠️ Limitations
-- Prioritizes dataset-tailored, prompt-conditioned adaptation, which may limit transferability across substantially different task distributions or out-of-distribution prompts.
-- Relies on a shallow MLP hypernetwork; scaling to more complex distribution shifts may require higher-capacity architectures and broader training corpora.
+- Prioritizes dataset-tailored, prompt-conditioned adaptation, which may limit transferability across substantially different task distributions without larger training corpora or higher-capacity hypernetworks.
