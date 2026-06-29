@@ -57,7 +57,7 @@ Select a research vector below to isolate the literature and view its trend.
 <strong style="color: #6382f2; font-size: 0.85rem; font-family: monospace; text-transform: uppercase; letter-spacing: 1px;">Research Trend</strong>
 </div>
 
-The field is converging on a paradigm shift from static prompting to dynamic, inference-time parameterization where frozen weights are continuously compressed into low-rank fast weights, hypernetwork-generated adapters, and latent state matrices via unsupervised gradient optimization <a href="/notes/test-time_adaptation/in-place_test-time_training.html" class="citation-badge">In-Place Test-Time Training</a> <a href="/notes/test-time_adaptation/context-to-lora_hypernetwork.html" class="citation-badge">Context-to-LoRA Hypernetwork</a> <a href="/notes/test-time_adaptation/latent_thought_models.html" class="citation-badge">Latent Thought Models</a> <a href="/notes/test-time_adaptation/compact_test-time_memory.html" class="citation-badge">Compact Test-Time Memory</a> <a href="/notes/test-time_adaptation/generativeadapter_test-time_adaptation.html" class="citation-badge">GenerativeAdapter Test-Time Adaptation</a> <a href="/notes/test-time_adaptation/end-to-end_test-time_training.html" class="citation-badge">End-to-End Test-Time Training</a>. This mathematical trajectory directly circumvents the quadratic context-scaling bottleneck of standard attention by routing inference compute toward lightweight, per-step weight updates and dynamic memory allocation, enabling constant-latency long-context modeling and self-directed adaptation without architectural modification or iterative fine-tuning <a href="/notes/test-time_adaptation/large_chunk_test-time_training.html" class="citation-badge">Large Chunk Test-Time Training</a> <a href="/notes/test-time_adaptation/titans_test-time_memory.html" class="citation-badge">Titans Test-Time Memory</a> <a href="/notes/test-time_adaptation/dynamic_layer-wise_tta.html" class="citation-badge">Dynamic Layer-Wise TTA</a> <a href="/notes/test-time_adaptation/test-time_llm_adaptation.html" class="citation-badge">Test-Time LLM Adaptation</a> <a href="/notes/test-time_adaptation/self-adapting_llm_framework.html" class="citation-badge">Self-Adapting LLM Framework</a>.
+The field is converging on a paradigm shift from static prompt-based inference to dynamic, inference-time weight compression and online optimization, where models continuously map streaming contexts to low-rank fast weights or compact state matrices via single-pass hypernetworks and gradient-driven updates <a href="/notes/test-time_adaptation/in-place_test-time_training.html" class="citation-badge">In-Place Test-Time Training</a> <a href="/notes/test-time_adaptation/context-to-lora_hypernetwork.html" class="citation-badge">Context-to-LoRA Hypernetwork</a> <a href="/notes/test-time_adaptation/dynamic_layer-wise_tta.html" class="citation-badge">Dynamic Layer-Wise TTA</a> <a href="/notes/test-time_adaptation/large_chunk_test-time_training.html" class="citation-badge">Large Chunk Test-Time Training</a>. This trajectory directly circumvents the quadratic compute and memory bottlenecks of long-context expansion by reformulating attention as linear online training <a href="/notes/test-time_adaptation/vit3_linear_test-time_vision.html" class="citation-badge">ViT3 Linear Test-Time Vision</a> and stabilizing unsupervised parameter updates through meta-initialized initialization and adaptive learning rate multipliers <a href="/notes/test-time_adaptation/end-to-end_test-time_training.html" class="citation-badge">End-to-End Test-Time Training</a> <a href="/notes/test-time_adaptation/titans_test-time_memory.html" class="citation-badge">Titans Test-Time Memory</a>, ultimately enabling constant-latency scaling and persistent plasticity without catastrophic forgetting <a href="/notes/test-time_adaptation/fast-slow_llm_training.html" class="citation-badge">Fast-Slow LLM Training</a> <a href="/notes/test-time_adaptation/latent_thought_models.html" class="citation-badge">Latent Thought Models</a>.
 
 </div>
 
@@ -193,6 +193,19 @@ The field is converging on a paradigm shift from static prompting to dynamic, in
 <div class="timeline-item">
 <div class="timeline-node"></div>
 <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2025-12</span>
+<a href="/notes/test-time_adaptation/vit3_linear_test-time_vision.html" class="paper-link">ViT3 Linear Test-Time Vision</a>
+</div>
+<div class="full-title-sub">ViT3: Unlocking Test-Time Training in Vision</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> ViT3 reformulates vision attention as online test-time training, achieving linear O(N) complexity while matching or surpassing state-of-the-art efficient and quadratic models across classification, detection, segmentation, and generation.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
 <span class="timeline-date">2025-06</span>
 <a href="/notes/test-time_adaptation/self-adapting_llm_framework.html" class="paper-link">Self-Adapting LLM Framework</a>
 </div>
@@ -321,7 +334,7 @@ The field is converging on a paradigm shift from static prompting to dynamic, in
 <strong style="color: #6382f2; font-size: 0.85rem; font-family: monospace; text-transform: uppercase; letter-spacing: 1px;">Research Trend</strong>
 </div>
 
-The field is undergoing a fundamental paradigm shift from static prompt composition to treating in-context demonstrations as dynamic computational substrates that execute token-dependent rank-1 implicit weight updates on MLP layers <a href="/notes/in-context_learning/context-to-weight_equivalence.html" class="citation-badge">Context-to-Weight Equivalence</a> <a href="/notes/in-context_learning/implicit_dynamics_of_icl.html" class="citation-badge">Implicit Dynamics of ICL</a>. This mathematical unification with gradient descent establishes a collective trajectory toward optimizing demonstration retrieval via reinforcement learning <a href="/notes/in-context_learning/active_example_selection.html" class="citation-badge">Active Example Selection</a> <a href="/notes/in-context_learning/rl-based_sequential_icl_retrieval.html" class="citation-badge">RL-Based Sequential ICL Retrieval</a>, compressing long contexts through meta-learned hypernetworks <a href="/notes/in-context_learning/instant_context_internalization.html" class="citation-badge">Instant Context Internalization</a>, and aligning cross-modal representations to bypass the computational bottlenecks of raw sequence scaling.
+The field has converged on a paradigm where in-context learning is mathematically formalized as token-dependent rank-1 implicit weight updates to MLP layers <a href="/notes/in-context_learning/context-to-weight_equivalence.html" class="citation-badge">Context-to-Weight Equivalence</a> <a href="/notes/in-context_learning/implicit_dynamics_of_icl.html" class="citation-badge">Implicit Dynamics of ICL</a>, transforming prompt composition from a static heuristic into a gradient-optimized, dynamically routed mechanism for parameter-free adaptation <a href="/notes/in-context_learning/context_tuning_for_llms.html" class="citation-badge">Context Tuning for LLMs</a> <a href="/notes/in-context_learning/active_example_selection.html" class="citation-badge">Active Example Selection</a>. Consequently, the collective frontier addresses the architectural and modality bottlenecks of fixed context windows by externalizing long-horizon processing through recursive decomposition <a href="/notes/in-context_learning/recursive_long_context_scaling.html" class="citation-badge">Recursive Long Context Scaling</a>, adapter-based internalization <a href="/notes/in-context_learning/instant_context_internalization.html" class="citation-badge">Instant Context Internalization</a>, and non-parametric memory routing <a href="/notes/in-context_learning/hipporag_2_memory_framework.html" class="citation-badge">HippoRAG 2 Memory Framework</a>, while bridging cross-modal alignment gaps via lightweight projection and intent-aligned retrieval <a href="/notes/in-context_learning/continuous_vector_in-context_learning.html" class="citation-badge">Continuous Vector In-Context Learning</a> <a href="/notes/in-context_learning/visual_in-context_learning.html" class="citation-badge">Visual In-Context Learning</a>.
 
 </div>
 
@@ -420,6 +433,19 @@ The field is undergoing a fundamental paradigm shift from static prompt composit
 <div class="timeline-item">
 <div class="timeline-node"></div>
 <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2025-02</span>
+<a href="/notes/in-context_learning/hipporag_2_memory_framework.html" class="paper-link">HippoRAG 2 Memory Framework</a>
+</div>
+<div class="full-title-sub">From RAG to Memory: Non-Parametric Continual Learning for Large Language Models</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> HippoRAG 2 integrates Personalized PageRank with dynamic passage weighting and online LLM filtering to deliver robust, human-like non-parametric memory across factual, associative, and sense-making tasks without catastrophic forgetting.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
 <span class="timeline-date">2024-10</span>
 <a href="/notes/in-context_learning/continuous_vector_in-context_learning.html" class="paper-link">Continuous Vector In-Context Learning</a>
 </div>
@@ -495,11 +521,36 @@ The field is undergoing a fundamental paradigm shift from static prompt composit
 <strong style="color: #6382f2; font-size: 0.85rem; font-family: monospace; text-transform: uppercase; letter-spacing: 1px;">Research Trend</strong>
 </div>
 
-The field is rapidly abandoning dense autoregressive decoding in favor of linear functional state-spaces and sparse adaptive routing to bypass the quadratic attention scaling and KV-cache I/O bottlenecks that constrain long-context and agentic inference. This transition is mathematically realized through constrained manifold projections <a href="/notes/efficient_architectures/manifold-constrained_hyper-connections.html" class="citation-badge">Manifold-Constrained Hyper-Connections</a>, regression-aligned cache compression <a href="/notes/efficient_architectures/global_regression_kv_cache.html" class="citation-badge">Global Regression KV Cache</a> <a href="/notes/efficient_architectures/caote_token_eviction.html" class="citation-badge">CAOTE Token Eviction</a>, and continuous latent feedback loops <a href="/notes/efficient_architectures/continuous_latent_reasoning.html" class="citation-badge">Continuous Latent Reasoning</a> <a href="/notes/efficient_architectures/calm_next-vector_language_models.html" class="citation-badge">CALM: Next-Vector Language Models</a> that decouple parameter count from compute depth while preserving representational fidelity.
+The field is undergoing a structural paradigm shift from quadratic autoregressive attention to linear-recurrent and continuous latent frameworks that explicitly decouple parameter count from compute depth, directly resolving the KV cache bloat and sequential decoding bottlenecks that constrain long-context scaling <a href="/notes/efficient_architectures/dynamic_linear_attention.html" class="citation-badge">Dynamic Linear Attention</a> <a href="/notes/efficient_architectures/functional_attention_architecture.html" class="citation-badge">Functional Attention Architecture</a> <a href="/notes/efficient_architectures/kimi_linear_architecture.html" class="citation-badge">Kimi Linear Architecture</a> <a href="/notes/efficient_architectures/calm_next-vector_language_models.html" class="citation-badge">CALM: Next-Vector Language Models</a>. This mathematical trajectory is unified by curvature-aware preconditioning <a href="/notes/efficient_architectures/curvature-aware_sequence_modeling.html" class="citation-badge">Curvature-Aware Sequence Modeling</a>, manifold-constrained hyper-connections <a href="/notes/efficient_architectures/manifold-constrained_hyper-connections.html" class="citation-badge">Manifold-Constrained Hyper-Connections</a>, and dynamic sparse routing protocols <a href="/notes/efficient_architectures/hierarchical_sparse_attention.html" class="citation-badge">Hierarchical Sparse Attention</a> <a href="/notes/efficient_architectures/query-oriented-sparse-attention.html" class="citation-badge">query-oriented-sparse-attention</a> that enforce resolution-invariant operator learning while preserving representation fidelity across agentic reasoning and generative workloads.
 
 </div>
 
 <div class="timeline-container">
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2026-06</span>
+<a href="/notes/efficient_architectures/dynamic_linear_attention.html" class="paper-link">Dynamic Linear Attention</a>
+</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> DLA replaces fixed memory merging in linear attention with adaptive, information-aware state boundaries, enabling efficient long-context modeling without sacrificing representation capacity.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2026-06</span>
+<a href="/notes/efficient_architectures/agent_memory_architecture_evaluation.html" class="paper-link">Agent Memory Architecture Evaluation</a>
+</div>
+<div class="full-title-sub">Are We Ready For An Agent-Native Memory System?</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> A systematic data-management framework decomposes and evaluates 12 LLM agent memory architectures, revealing workload-dependent trade-offs between retrieval fidelity, update robustness, and operational cost.
+
+</div>
+</div>
 <div class="timeline-item">
 <div class="timeline-node"></div>
 <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
@@ -614,6 +665,19 @@ The field is rapidly abandoning dense autoregressive decoding in favor of linear
 <div class="takeaway-text" markdown="1">
 
 <span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> ELT decouples parameter count from compute depth via recurrent weight-sharing and intra-loop distillation, enabling any-time visual generation with a 4× efficiency gain.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2026-04</span>
+<a href="/notes/efficient_architectures/gist_sparse_attention.html" class="paper-link">Gist Sparse Attention</a>
+</div>
+<div class="full-title-sub">Forget, Then Recall: Learnable Compression and Selective Unfolding via Gist Sparse Attention</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> A learnable, hierarchical gist-compression framework that routes sparse attention to relevant context chunks, achieving log-linear complexity without architectural modifications.
 
 </div>
 </div>
@@ -769,6 +833,19 @@ The field is rapidly abandoning dense autoregressive decoding in favor of linear
 <div class="takeaway-text" markdown="1">
 
 <span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> Caching intermediate RNN memory states enables linear-complexity models to scale context length without quadratic overhead.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2026-02</span>
+<a href="/notes/efficient_architectures/efficient_context_compression.html" class="paper-link">Efficient Context Compression</a>
+</div>
+<div class="full-title-sub">Fix the Structural Bottleneck: Context Compression via Explicit Information Transmission</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> ComprExIT bypasses trainable compressor LLMs by using frozen hidden states and optimal transport to compress context efficiently, outperforming existing methods with only 1% extra parameters.
 
 </div>
 </div>
@@ -996,6 +1073,19 @@ The field is rapidly abandoning dense autoregressive decoding in favor of linear
 <div class="timeline-item">
 <div class="timeline-node"></div>
 <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2024-09</span>
+<a href="/notes/efficient_architectures/optical_direct_feedback_training.html" class="paper-link">Optical Direct Feedback Training</a>
+</div>
+<div class="full-title-sub">Streamlined optical training of large-scale modern deep learning architectures with direct feedback alignment</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> Hybrid opto-electronic hardware enables energy-efficient, massively parallel training of billion-parameter models by replacing backpropagation with optical direct feedback alignment.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
 <span class="timeline-date">2024-07</span>
 <a href="/notes/efficient_architectures/sparse_high_rank_adapters.html" class="paper-link">Sparse High Rank Adapters</a>
 </div>
@@ -1016,6 +1106,19 @@ The field is rapidly abandoning dense autoregressive decoding in favor of linear
 <div class="takeaway-text" markdown="1">
 
 <span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> EAGLE-2 dynamically adjusts speculative draft trees using confidence scores to achieve lossless, up to 4.26x inference speedups without extra training.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2024-03</span>
+<a href="/notes/efficient_architectures/hierarchical_dynamic_prompt_compression.html" class="paper-link">Hierarchical Dynamic Prompt Compression</a>
+</div>
+<div class="full-title-sub">Hierarchical and Dynamic Prompt Compression for Efficient Zero-shot API Usage</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> A dynamic, hierarchical gist-token compression method that drastically reduces LLM inference compute and memory while preserving zero-shot API calling accuracy.
 
 </div>
 </div>
@@ -1292,7 +1395,7 @@ The field is converging on unified differentiable mappings from raw pixel observ
 <strong style="color: #6382f2; font-size: 0.85rem; font-family: monospace; text-transform: uppercase; letter-spacing: 1px;">Research Trend</strong>
 </div>
 
-The current frontier resolves the collective bottleneck of gradient compression in linear projections and unstable recurrent unrolling by abandoning static weight updates in favor of dynamic, self-supervised adaptation governed by continuous latent supervision and intrinsic predictive signals <a href="/notes/theory_&_optimization/lm_head_gradient_bottleneck.html" class="citation-badge">LM Head Gradient Bottleneck</a> <a href="/notes/theory_&_optimization/supervised_memory_training.html" class="citation-badge">Supervised Memory Training</a>. This mathematical trajectory formalizes optimization as a time-parallel, validation-free process that prevents representation collapse through temporal derivative learning <a href="/notes/theory_&_optimization/neocortical_learning_theory.html" class="citation-badge">Neocortical Learning Theory</a>, certitude-driven unsupervised reasoning <a href="/notes/theory_&_optimization/intrinsic_reward_llm_training.html" class="citation-badge">Intrinsic Reward LLM Training</a>, and optimal transport interpolation <a href="/notes/theory_&_optimization/hyperparameter_trajectory_inference.html" class="citation-badge">Hyperparameter Trajectory Inference</a> to enable weight-free procedural refinement <a href="/notes/theory_&_optimization/skillopt_text-space_optimizer.html" class="citation-badge">SkillOpt Text-Space Optimizer</a> and synthetic latent bootstrapping <a href="/notes/theory_&_optimization/bootstrapping_latent_thoughts.html" class="citation-badge">Bootstrapping Latent Thoughts</a>.
+The field is converging on a paradigm shift from weight-transport-dependent backpropagation toward biologically plausible, layer-independent optimization via direct feedback alignment <a href="/notes/theory_&_optimization/direct_feedback_alignment_training.html" class="citation-badge">Direct Feedback Alignment Training</a> <a href="/notes/theory_&_optimization/feedback_alignment_dynamics.html" class="citation-badge">Feedback Alignment Dynamics</a>, which fundamentally circumvents the severe gradient compression bottleneck inherent in standard linear projection heads <a href="/notes/theory_&_optimization/lm_head_gradient_bottleneck.html" class="citation-badge">LM Head Gradient Bottleneck</a>. This mathematical trajectory replaces homogeneous autoregressive weight updates with self-supervised latent dynamics and intrinsic adaptation mechanisms that leverage continuous predictive objectives <a href="/notes/theory_&_optimization/next_implicit_token_prediction.html" class="citation-badge">Next Implicit Token Prediction</a> and unweighted external state optimization <a href="/notes/theory_&_optimization/skillopt_text-space_optimizer.html" class="citation-badge">SkillOpt Text-Space Optimizer</a>, establishing a new frontier where generalization and specialization are governed by compact belief states and topology-aware forward training rather than sparse external supervision or validation-dependent risk minimization <a href="/notes/theory_&_optimization/compact_latent_dynamics_in_transformers.html" class="citation-badge">Compact Latent Dynamics in Transformers</a> <a href="/notes/theory_&_optimization/superhuman_adaptable_intelligence.html" class="citation-badge">Superhuman Adaptable Intelligence</a>.
 
 </div>
 
@@ -1404,6 +1507,19 @@ The current frontier resolves the collective bottleneck of gradient compression 
 <div class="timeline-item">
 <div class="timeline-node"></div>
 <div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2025-11</span>
+<a href="/notes/theory_&_optimization/compact_latent_dynamics_in_transformers.html" class="paper-link">Compact Latent Dynamics in Transformers</a>
+</div>
+<div class="full-title-sub">Next-Latent Prediction Transformers Learn Compact World Models</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> NextLat injects a recurrent inductive bias into transformers via self-supervised latent prediction, provably yielding compact belief states that generalize better and accelerate inference.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
 <span class="timeline-date">2025-07</span>
 <a href="/notes/theory_&_optimization/reflective_prompt_evolution.html" class="paper-link">Reflective Prompt Evolution</a>
 </div>
@@ -1437,6 +1553,58 @@ The current frontier resolves the collective bottleneck of gradient compression 
 <div class="takeaway-text" markdown="1">
 
 <span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> Models can iteratively bootstrap their own data efficiency by inferring and training on synthetic latent reasoning thoughts via an EM algorithm.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2024-06</span>
+<a href="/notes/theory_&_optimization/dfa-gnn_forward_training.html" class="paper-link">DFA-GNN Forward Training</a>
+</div>
+<div class="full-title-sub">DFA-GNN: FORWARD LEARNING OF GRAPH NEURAL NETWORKS BY DIRECT FEEDBACK ALIGNMENT</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> DFA-GNN replaces biologically implausible backpropagation with a topology-aware direct feedback alignment mechanism, enabling efficient, parallel, and robust training for graph neural networks.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2020-11</span>
+<a href="/notes/theory_&_optimization/feedback_alignment_dynamics.html" class="paper-link">Feedback Alignment Dynamics</a>
+</div>
+<div class="full-title-sub">Align, then memorise: the dynamics of learning with feedback alignment</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> Direct Feedback Alignment succeeds by sequentially aligning gradients before memorizing data, with performance dictated by the conditioning of alignment matrices.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2020-06</span>
+<a href="/notes/theory_&_optimization/direct_feedback_alignment_scaling.html" class="paper-link">Direct Feedback Alignment Scaling</a>
+</div>
+<div class="full-title-sub">Direct Feedback Alignment Scales to Modern Deep Learning Tasks and Architectures</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> DFA successfully trains state-of-the-art architectures like Transformers and GNNs without backpropagation's weight transport requirement, matching BP performance with targeted optimizer tuning.
+
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-node"></div>
+<div style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;">
+<span class="timeline-date">2016-09</span>
+<a href="/notes/theory_&_optimization/direct_feedback_alignment_training.html" class="paper-link">Direct Feedback Alignment Training</a>
+</div>
+<div class="full-title-sub">Direct Feedback Alignment Provides Learning in Deep Neural Networks</div>
+<div class="takeaway-text" markdown="1">
+
+<span style="color: #64748b; font-family: monospace; font-weight: bold;">└─</span> Replaces backpropagation with fixed random feedback weights, enabling biologically plausible, layer-independent training while maintaining competitive benchmark performance.
 
 </div>
 </div>
